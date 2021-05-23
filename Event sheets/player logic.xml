@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>player logic</name>
+    <events>
+        <variable constant="0" name="Shoot" sid="151249697713446" static="0" type="number">0</variable>
+        <variable constant="0" name="VerticalAxis" sid="314558113700089" static="0" type="number">0</variable>
+        <variable constant="0" name="HorizontalAxis" sid="493732432115902" static="0" type="number">0</variable>
+        <variable constant="0" name="Jump" sid="536705603207863" static="0" type="number">0</variable>
+        <event-block sid="955410564810075">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="183078730740512" type="System" />
+            </conditions>
+            <actions />
+        </event-block>
+        <event-group description="" sid="594164031896974" title="Register Inputs">
+            <sub-events>
+                <event-block sid="336404341480715">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="914978048807739" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                        <condition id="2" inverted="1" name="Key is down" sid="287814086926022" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="106283978335068" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;left&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="817134338078279">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="248433060333633" type="System" />
+                        <condition id="2" inverted="1" name="Key is down" sid="546855190901770" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                        <condition id="2" name="Key is down" sid="642716669002968" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="435359948014518" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;right&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="312571990336625">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="243918805241212" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="814075335533687" type="System">
+                            <param id="0" name="Variable">HorizontalAxis</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="459069001488585">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="896421280642721" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="489381435665619" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;jump&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="306273908211386">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="922760512587459" type="Keyboard">
+                            <param id="0" name="Key">87</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="304059371707366" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;walljump&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="761507425547920">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="988915348484690" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="667870315800009" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;jump&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="448808815185640">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="908123404500018" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="955807510150335" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;walljump&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="246158855002759" title="Movement">
+            <sub-events>
+                <event-block sid="401681973630450">
+                    <conditions>
+                        <condition id="0" name="On function" sid="552238953650457" type="Function">
+                            <param id="0" name="Name">&quot;player_move&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="179185728515720">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="787591054635162" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;jump&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="423858632500128" type="player_box">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="294575393685122">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="300941392475956" type="player_box">
+                                            <param id="0" name="Instance variable">wallslide_timer</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="889274825468235">
+                                            <conditions>
+                                                <condition id="9" name="Is overlapping at offset" sid="387373516121397" type="player_box">
+                                                    <param id="0" name="Object">tm_test</param>
+                                                    <param id="1" name="Offset X">-2</param>
+                                                    <param id="2" name="Offset Y">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Platform" id="9" name="Set vector Y" sid="406414049981270" type="player_box">
+                                                    <param id="0" name="Vector Y">-300</param>
+                                                </action>
+                                                <action behavior="Platform" id="8" name="Set vector X" sid="270070911877100" type="player_box">
+                                                    <param id="0" name="Vector X">400</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="798006522719767" type="player_box">
+                                                    <param id="0" name="Instance variable">walljump_timer</param>
+                                                    <param id="1" name="Value">0.5</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="544626226142252" type="player_box">
+                                                    <param id="0" name="Instance variable">wallslide_timer</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="204263356766717">
+                                            <conditions>
+                                                <condition id="9" name="Is overlapping at offset" sid="976022679800112" type="player_box">
+                                                    <param id="0" name="Object">tm_test</param>
+                                                    <param id="1" name="Offset X">2</param>
+                                                    <param id="2" name="Offset Y">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Platform" id="9" name="Set vector Y" sid="125037324916488" type="player_box">
+                                                    <param id="0" name="Vector Y">-300</param>
+                                                </action>
+                                                <action behavior="Platform" id="8" name="Set vector X" sid="824812257027193" type="player_box">
+                                                    <param id="0" name="Vector X">-400</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="185171726896710" type="player_box">
+                                                    <param id="0" name="Instance variable">walljump_timer</param>
+                                                    <param id="1" name="Value">0.5</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="974903519312525" type="player_box">
+                                                    <param id="0" name="Instance variable">wallslide_timer</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="696958210485776">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="255413157757888" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="823242882079592" type="player_box">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="822251403786714">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="862191837382974" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="552951840760080" type="player_box">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <comment>Friction while grabbing the wall</comment>
+                        <event-block any="1" sid="498814652739246">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="149190539394803" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;left&quot;</param>
+                                </condition>
+                                <condition id="1" name="Compare parameter" sid="899110348286465" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;right&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="258655745401680">
+                                    <conditions>
+                                        <condition behavior="Platform" id="2" inverted="1" name="Is on floor" sid="135625103860974" type="player_box" />
+                                        <condition behavior="Platform" id="4" name="Is falling" sid="751524640690497" type="player_box" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block any="1" sid="920972610805593">
+                                            <conditions>
+                                                <condition id="9" name="Is overlapping at offset" sid="467017091482222" type="player_box">
+                                                    <param id="0" name="Object">tm_test</param>
+                                                    <param id="1" name="Offset X">-2</param>
+                                                    <param id="2" name="Offset Y">0</param>
+                                                </condition>
+                                                <condition id="9" name="Is overlapping at offset" sid="895756657563163" type="player_box">
+                                                    <param id="0" name="Object">tm_test</param>
+                                                    <param id="1" name="Offset X">2</param>
+                                                    <param id="2" name="Offset Y">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="553007613098861" type="player_box">
+                                                    <param id="0" name="Instance variable">wallslide_timer</param>
+                                                    <param id="1" name="Value">0.4</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Change walljump variables</comment>
+                <event-block sid="553645947325180">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="881503841464735" type="player_box">
+                            <param id="0" name="Instance variable">walljump_timer</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="145622794536626" type="player_box">
+                            <param id="0" name="Instance variable">walljump_timer</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                        <action behavior="Platform" id="3" name="Set deceleration" sid="207939827431351" type="player_box">
+                            <param id="0" name="Deceleration">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="581188246721463">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="349419187903349" type="player_box">
+                            <param id="0" name="Instance variable">walljump_timer</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="540351921664097" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="3" name="Set deceleration" sid="338948840251999" type="player_box">
+                            <param id="0" name="Deceleration">1000</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="821129997606356">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="163698442000283" type="player_box">
+                            <param id="0" name="Instance variable">wallslide_timer</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="747708187313148" type="player_box">
+                            <param id="0" name="Instance variable">wallslide_timer</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                        <action behavior="Platform" id="9" name="Set vector Y" sid="557807463420461" type="player_box">
+                            <param id="0" name="Vector Y">player_box.Platform.VectorY/2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="253525586836083">
+                            <conditions>
+                                <condition id="9" inverted="1" name="Is overlapping at offset" sid="621102621243107" type="player_box">
+                                    <param id="0" name="Object">tm_test</param>
+                                    <param id="1" name="Offset X">-2</param>
+                                    <param id="2" name="Offset Y">0</param>
+                                </condition>
+                                <condition id="9" inverted="1" name="Is overlapping at offset" sid="174010427252763" type="player_box">
+                                    <param id="0" name="Object">tm_test</param>
+                                    <param id="1" name="Offset X">2</param>
+                                    <param id="2" name="Offset Y">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="982841588911965" type="player_box">
+                                    <param id="0" name="Instance variable">wallslide_timer</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="398402577740218">
+                    <conditions>
+                        <condition behavior="Platform" id="9" name="On landed" sid="943631144410470" type="player_box" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="998659669271444" type="player_box">
+                            <param id="0" name="Instance variable">walljump_timer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="929446149614761" type="player_box">
+                            <param id="0" name="Instance variable">wallslide_timer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="628593649482826" title="Camera" />
+        <event-group description="" sid="775174354794500" title="Shooting">
+            <sub-events>
+                <event-group description="" sid="573190380350061" title="Cursor">
+                    <sub-events>
+                        <event-block sid="908423008832182">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="846122269885394" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="664981579700377" type="pl_aim" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="528143580673527">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="136445849160116" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="943502290329012" type="pl_cursor">
+                                    <param id="0" name="X">mouse.x</param>
+                                    <param id="1" name="Y">mouse.y</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="565411771057759" type="player_box">
+                                    <param id="0" name="Object">pl_aim</param>
+                                    <param id="1" name="Layer">&quot;cursor&quot;</param>
+                                    <param id="2" name="Image point">3</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="238037194611840" type="pl_aim">
+                                    <param id="0" name="Instance variable">hasCollided</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="784043949459002" type="pl_aim">
+                                    <param id="0" name="Angle">angle(self.X,self.Y, mouse.X,mouse.Y)</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="771325601679913">
+                                    <conditions>
+                                        <condition id="-10" name="For" sid="555504089866081" type="System">
+                                            <param id="0" name="Name">&quot;&quot;</param>
+                                            <param id="1" name="Start index">1</param>
+                                            <param id="2" name="End index">500</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="105784108563843" type="pl_aim">
+                                            <param id="0" name="Instance variable">hasCollided</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-5" name="Set width" sid="688396454611898" type="pl_aim">
+                                            <param id="0" name="Width">self.Width+2</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="241340301898077">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="854435029032323" type="pl_aim">
+                                                    <param id="0" name="Object">tm_test</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="110398425769553" type="pl_aim">
+                                                    <param id="0" name="Instance variable">hasCollided</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="475322566295153">
+                            <conditions>
+                                <condition id="0" name="On click" sid="453268929276726" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="324622173927213" type="player_box">
+                                    <param id="0" name="Object">pl_shield</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="Image point">3</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="308770002188157" type="pl_shield">
+                                    <param id="0" name="Angle">1</param>
+                                </action>
+                                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="243998424412414" type="pl_shield">
+                                    <param id="0" name="Impulse">20</param>
+                                    <param id="1" name="Angle">angle(self.X,self.Y, mouse.X,mouse.Y)</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action behavior="Physics" id="12" name="Set world gravity" sid="148799537243114" type="pl_shield">
+                                    <param id="0" name="Gravity">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="342301324462462">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="896551077473741" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="730296620552593" type="pl_shield" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="738160525649753">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="859328683213939" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="157692879074015" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="353641715092033" title="Animations">
+            <sub-events>
+                <event-group description="" sid="907486168085648" title="Particles">
+                    <sub-events>
+                        <comment>Running particle</comment>
+                        <event-block sid="801986927436654">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="244740306483719" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="395593785375605" type="pl_ptc_run">
+                                    <param id="0" name="X">-100</param>
+                                    <param id="1" name="Y">-100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="749301601828951">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="711571060504384" type="player_box" />
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="404039669654355" type="player_box" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="239345269175268" type="pl_ptc_run">
+                                    <param id="0" name="X">player_box.x</param>
+                                    <param id="1" name="Y">player_box.y</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="624396142423054">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="473164234866098" type="System">
+                                            <param id="0" name="First value">player_box.Platform.VectorX</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="367202157919800" type="pl_ptc_run">
+                                            <param id="0" name="Angle">195</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="227603024355663">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="230980069518239" type="System">
+                                            <param id="0" name="First value">player_box.Platform.VectorX</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="581220574242058" type="pl_ptc_run">
+                                            <param id="0" name="Angle">-15</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Jumping particle</comment>
+                        <event-block sid="231146309042009">
+                            <conditions>
+                                <condition behavior="Platform" id="5" name="On jump" sid="671012205692967" type="player_box" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Spawn another object" sid="786990332468305" type="player_box">
+                                    <param id="0" name="Object">pl_ptc_jump</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="598468363110436" type="pl_ptc_jump">
+                                    <param id="0" name="Angle">-15</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="313026318070191" type="player_box">
+                                    <param id="0" name="Object">pl_ptc_jump</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="119892077302017" type="pl_ptc_jump">
+                                    <param id="0" name="Angle">195</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="823471362656862">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="695739682211145" type="player_box">
+                                    <param id="0" name="Instance variable">walljump_timer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-4" name="Trigger once while true" sid="756575029165235" type="System" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="898096897125689">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="534560879788384" type="System">
+                                            <param id="0" name="First value">player_box.Platform.VectorX</param>
+                                            <param id="1" name="Comparison">4</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="256102629789781" type="player_box">
+                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="1" name="Layer">&quot;game&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="178752870246188" type="pl_ptc_jump">
+                                            <param id="0" name="Angle">75</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="560777886723437" type="player_box">
+                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="1" name="Layer">&quot;game&quot;</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="244227323348404" type="pl_ptc_jump">
+                                            <param id="0" name="Angle">285</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="992993128305042">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="790702990463909" type="System">
+                                            <param id="0" name="First value">player_box.Platform.VectorX</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="199023297443541" type="player_box">
+                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="1" name="Layer">&quot;game&quot;</param>
+                                            <param id="2" name="Image point">2</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="683117533373162" type="pl_ptc_jump">
+                                            <param id="0" name="Angle">105</param>
+                                        </action>
+                                        <action id="0" name="Spawn another object" sid="553750913594797" type="player_box">
+                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="1" name="Layer">&quot;game&quot;</param>
+                                            <param id="2" name="Image point">2</param>
+                                        </action>
+                                        <action id="-8" name="Set angle" sid="546982587425789" type="pl_ptc_jump">
+                                            <param id="0" name="Angle">255</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment>Wallsliding particle</comment>
+                        <event-block sid="501582456404659">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="598931996945121" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="785008066635853" type="pl_ptc_wallslide">
+                                    <param id="0" name="X">-100</param>
+                                    <param id="1" name="Y">-100</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="582707482520876">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="581517635797605" type="player_box">
+                                    <param id="0" name="Instance variable">wallslide_timer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="536490716677729">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="101892410357610" type="player_box">
+                                            <param id="0" name="Object">tm_test</param>
+                                            <param id="1" name="Offset X">2</param>
+                                            <param id="2" name="Offset Y">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="845008952301239" type="pl_ptc_wallslide">
+                                            <param id="0" name="X">player_box.ImagePointX(2)</param>
+                                            <param id="1" name="Y">player_box.ImagePointY(2)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="288216570375561">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="173610950439241" type="player_box">
+                                            <param id="0" name="Object">tm_test</param>
+                                            <param id="1" name="Offset X">-2</param>
+                                            <param id="2" name="Offset Y">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="528621544286783" type="pl_ptc_wallslide">
+                                            <param id="0" name="X">player_box.ImagePointX(1)</param>
+                                            <param id="1" name="Y">player_box.ImagePointY(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

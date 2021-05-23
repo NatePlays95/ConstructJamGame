@@ -12,8 +12,10 @@
     <used-plugins>
         <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
@@ -23,6 +25,7 @@
         <plugin author="Scirra" id="gamepad" version="1">Gamepad</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
         <behavior author="Scirra" id="solid" version="1">Solid</behavior>
     </used-behaviors>
@@ -34,14 +37,14 @@
         <width>480</width>
         <height>270</height>
     </window-size>
-    <pixel-rounding>1</pixel-rounding>
+    <pixel-rounding>0</pixel-rounding>
     <preview-effects>1</preview-effects>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">No</prop>
         <prop name="Enable WebGL">On</prop>
         <prop name="Fullscreen in browser">Letterbox integer scale</prop>
-        <prop name="Fullscreen scaling">Low quality</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Fullscreen scaling quality">Low</prop>
         <prop name="Hide address bar">No</prop>
         <prop name="Loader style">Progress bar &amp; logo</prop>
@@ -84,6 +87,9 @@
                 <behavior-type name="Solid" sid="106452528559552">
                     <behavior id="solid" />
                 </behavior-type>
+                <behavior-type name="Physics" sid="331570800684549">
+                    <behavior id="Physics" />
+                </behavior-type>
             </behaviors>
             <texture />
             <tiles>
@@ -107,24 +113,127 @@
         </object-type>
         <object-type name="player_box" sid="393506950940373">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="walljump_timer" sid="783599485051381" type="number" />
+                <instance-variable name="wallslide_timer" sid="886165497487285" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="847934582771319">
                     <behavior id="Platform" />
                 </behavior-type>
             </behaviors>
+            <container>
+                <type>player_box</type>
+                <type>pl_ptc_wallslide</type>
+                <type>pl_ptc_run</type>
+            </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="874152522769238" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="1">
+                        <image-point name="handl" x="0" y="0.5" />
+                        <image-point name="handr" x="1" y="0.5" />
+                        <image-point name="shoot" x="0.5" y="0.375" />
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="420790877436357">
+            <plugin id="Function" />
+        </object-type>
+        <object-type name="pl_ptc_run" sid="353705497753400">
+            <plugin id="Particles" />
+            <container>
+                <type>player_box</type>
+                <type>pl_ptc_wallslide</type>
+                <type>pl_ptc_run</type>
+            </container>
+            <texture />
+        </object-type>
+        <object-type name="pl_ptc_jump" sid="264413755159290">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="pl_ptc_wallslide" sid="226227702014096">
+            <plugin id="Particles" />
+            <container>
+                <type>player_box</type>
+                <type>pl_ptc_wallslide</type>
+                <type>pl_ptc_run</type>
+            </container>
+            <texture />
+        </object-type>
+        <object-type name="pl_cursor" sid="333217508889012">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="364059086956306" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="pl_aim" sid="702905522107478">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="hasCollided" sid="952214653098965" type="boolean" />
+            </instance-variables>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="149406487960366" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.5">
+                        <image-point name="Imagepoint 1" x="1" y="0.5" />
+                        <collision-poly>
+                            <point x="1" y="0.375" />
+                            <point x="1" y="0.625" />
+                            <point x="0" y="0.625" />
+                            <point x="0" y="0.375" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="TiledBackground2" sid="739826939803660">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="pl_shield" sid="977636942898417">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="timer" sid="320289847034094" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Physics" sid="723430291954142">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="315189577970104" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.2" y="0.2" />
+                            <point x="0.5" y="0.05" />
+                            <point x="0.8" y="0.2" />
+                            <point x="0.95" y="0.5" />
+                            <point x="0.8" y="0.8" />
+                            <point x="0.5" y="0.95" />
+                            <point x="0.2" y="0.8" />
+                            <point x="0.05" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
-    <families />
+    <families>
+        <family name="SolidTiles" plugin-id="Tilemap" sid="430722441375973">
+            <members>
+                <member>tm_test</member>
+            </members>
+        </family>
+    </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>game logic.xml</event-sheet>
+        <event-sheet>player logic.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />
@@ -155,6 +264,7 @@
             </properties>
         </global-instance>
         <global-instance type="Browser" uid="7" />
+        <global-instance type="Function" uid="9" />
     </global-instances>
     <sounds-folder />
     <music-folder />
