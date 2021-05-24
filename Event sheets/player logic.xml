@@ -3,16 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>player logic</name>
     <events>
-        <variable constant="0" name="Shoot" sid="151249697713446" static="0" type="number">0</variable>
-        <variable constant="0" name="VerticalAxis" sid="314558113700089" static="0" type="number">0</variable>
-        <variable constant="0" name="HorizontalAxis" sid="493732432115902" static="0" type="number">0</variable>
-        <variable constant="0" name="Jump" sid="536705603207863" static="0" type="number">0</variable>
-        <event-block sid="955410564810075">
-            <conditions>
-                <condition id="-2" name="On start of layout" sid="183078730740512" type="System" />
-            </conditions>
-            <actions />
-        </event-block>
         <event-group description="" sid="594164031896974" title="Register Inputs">
             <sub-events>
                 <event-block sid="336404341480715">
@@ -52,12 +42,7 @@
                     <conditions>
                         <condition id="-22" name="Else" sid="243918805241212" type="System" />
                     </conditions>
-                    <actions>
-                        <action id="-9" name="Set value" sid="814075335533687" type="System">
-                            <param id="0" name="Variable">HorizontalAxis</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
+                    <actions />
                 </event-block>
                 <event-block sid="459069001488585">
                     <conditions>
@@ -370,11 +355,209 @@
             </sub-events>
         </event-group>
         <event-group description="" sid="628593649482826" title="Camera" />
-        <event-group description="" sid="775174354794500" title="Shooting">
+        <event-group description="" sid="775174354794500" title="Ball logic">
             <sub-events>
-                <event-group description="" sid="573190380350061" title="Cursor">
+                <event-block sid="967775447351190">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="308958553911476" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="12" name="Set world gravity" sid="744335177545358" type="pl_shield">
+                            <param id="0" name="Gravity">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-group description="" disabled="1" sid="632916347989795" title="Physics Behaviour">
                     <sub-events>
-                        <event-block sid="908423008832182">
+                        <event-block disabled="1" sid="681474153193247">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="384893856017740" type="pl_shield">
+                                    <param id="0" name="Object">tm_test</param>
+                                </condition>
+                                <condition behavior="Physics" id="1" name="Compare velocity" sid="663437071650475" type="pl_shield">
+                                    <param id="0" name="Which">2</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="878249614088330" type="camera">
+                                    <param id="0" name="Magnitude">1</param>
+                                    <param id="1" name="Duration">0.05</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="106019241886571">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="860544031841465" type="pl_shield">
+                                            <param id="0" name="Instance variable">timer</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="902089147656654" type="pl_shield">
+                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block disabled="1" sid="544495672837432">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="657523471532519" type="pl_shield">
+                                    <param id="0" name="Object">player_box</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="928730614733673" type="camera">
+                                    <param id="0" name="Magnitude">4</param>
+                                    <param id="1" name="Duration">0.3</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="644549169727080" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="438405953850898" type="pl_shield">
+                                    <param id="0" name="Impulse">sqrt(player_box.Platform.Speed)</param>
+                                    <param id="1" name="Angle">angle(player_box.ImagePointX(0),player_box.ImagePointY(0), Self.X, self.Y)</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block disabled="1" sid="583459528906114">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="557820733039627" type="pl_shield">
+                                            <param id="0" name="Object">tm_test</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="318717341898766" type="pl_shield">
+                                            <param id="0" name="Impulse">5</param>
+                                            <param id="1" name="Angle">270</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block disabled="1" sid="363274351419877">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="228571921027085" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="937102859025074" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="781793862525545" title="Bullet Behaviour">
+                    <sub-events>
+                        <event-block sid="165908028478001">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="742633131548309" type="pl_shield">
+                                    <param id="0" name="Object">tm_test</param>
+                                </condition>
+                                <condition behavior="Bullet" id="0" name="Compare speed" sid="144974475535723" type="pl_shield">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Speed">5</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="449187488443417" type="camera">
+                                    <param id="0" name="Magnitude">1</param>
+                                    <param id="1" name="Duration">0.05</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="885920961027244">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="225778819715333" type="pl_shield">
+                                            <param id="0" name="Instance variable">timer</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="729562807072022" type="pl_shield">
+                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="415184131380083">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="777865944836874" type="pl_shield">
+                                    <param id="0" name="Object">player_box</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Bullet" id="0" name="Set speed" sid="235010150312865" type="pl_shield">
+                                    <param id="0" name="Speed">self.bullet.speed + player_box.Platform.Speed/2</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="453452422027922" type="pl_shield">
+                                    <param id="0" name="Angle">angle(player_box.ImagePointX(0),player_box.ImagePointY(0), Self.X, self.Y)</param>
+                                </action>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="669925891269318" type="camera">
+                                    <param id="0" name="Magnitude">4</param>
+                                    <param id="1" name="Duration">0.3</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="-10" name="Set value" sid="396427968343043" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Value">0.5</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="477725016381599">
+                                    <conditions>
+                                        <condition id="9" name="Is overlapping at offset" sid="466626625963021" type="pl_shield">
+                                            <param id="0" name="Object">tm_test</param>
+                                            <param id="1" name="Offset X">0</param>
+                                            <param id="2" name="Offset Y">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="743491194326153" type="pl_shield">
+                                            <param id="0" name="Angle">(pl_shield.x&gt;player_box.x?-20:200)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="830202322229783">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="542649839664837" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-12" name="Subtract from" sid="403828078752900" type="pl_shield">
+                                    <param id="0" name="Instance variable">timer</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" disabled="1" sid="573190380350061" title="Cursor">
+                    <sub-events>
+                        <event-block disabled="1" sid="908423008832182">
                             <conditions>
                                 <condition id="-1" name="Every tick" sid="846122269885394" type="System" />
                             </conditions>
@@ -382,7 +565,7 @@
                                 <action id="-9" name="Destroy" sid="664981579700377" type="pl_aim" />
                             </actions>
                         </event-block>
-                        <event-block sid="528143580673527">
+                        <event-block disabled="1" sid="528143580673527">
                             <conditions>
                                 <condition id="-1" name="Every tick" sid="136445849160116" type="System" />
                             </conditions>
@@ -405,7 +588,7 @@
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="771325601679913">
+                                <event-block disabled="1" sid="771325601679913">
                                     <conditions>
                                         <condition id="-10" name="For" sid="555504089866081" type="System">
                                             <param id="0" name="Name">&quot;&quot;</param>
@@ -422,7 +605,7 @@
                                         </action>
                                     </actions>
                                     <sub-events>
-                                        <event-block sid="241340301898077">
+                                        <event-block disabled="1" sid="241340301898077">
                                             <conditions>
                                                 <condition id="1" name="Is overlapping another object" sid="854435029032323" type="pl_aim">
                                                     <param id="0" name="Object">tm_test</param>
@@ -438,55 +621,6 @@
                                     </sub-events>
                                 </event-block>
                             </sub-events>
-                        </event-block>
-                        <event-block sid="475322566295153">
-                            <conditions>
-                                <condition id="0" name="On click" sid="453268929276726" type="Mouse">
-                                    <param id="0" name="Mouse button">0</param>
-                                    <param id="1" name="Click type">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Spawn another object" sid="324622173927213" type="player_box">
-                                    <param id="0" name="Object">pl_shield</param>
-                                    <param id="1" name="Layer">&quot;game&quot;</param>
-                                    <param id="2" name="Image point">3</param>
-                                </action>
-                                <action id="-8" name="Set angle" sid="308770002188157" type="pl_shield">
-                                    <param id="0" name="Angle">1</param>
-                                </action>
-                                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="243998424412414" type="pl_shield">
-                                    <param id="0" name="Impulse">20</param>
-                                    <param id="1" name="Angle">angle(self.X,self.Y, mouse.X,mouse.Y)</param>
-                                    <param id="2" name="Image point">0</param>
-                                </action>
-                                <action behavior="Physics" id="12" name="Set world gravity" sid="148799537243114" type="pl_shield">
-                                    <param id="0" name="Gravity">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="342301324462462">
-                            <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="896551077473741" type="pl_shield">
-                                    <param id="0" name="Instance variable">timer</param>
-                                    <param id="1" name="Comparison">3</param>
-                                    <param id="2" name="Value">0</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-9" name="Destroy" sid="730296620552593" type="pl_shield" />
-                            </actions>
-                        </event-block>
-                        <event-block sid="738160525649753">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="859328683213939" type="System" />
-                            </conditions>
-                            <actions>
-                                <action id="-12" name="Subtract from" sid="157692879074015" type="pl_shield">
-                                    <param id="0" name="Instance variable">timer</param>
-                                    <param id="1" name="Value">dt</param>
-                                </action>
-                            </actions>
                         </event-block>
                     </sub-events>
                 </event-group>

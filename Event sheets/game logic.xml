@@ -4,5 +4,57 @@
     <name>game logic</name>
     <events>
         <include>player logic</include>
+        <event-group description="" sid="425268662864626" title="Breakable">
+            <sub-events>
+                <event-block sid="768845221402680">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="731344306812950" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="513361986387382" type="e_template">
+                            <param id="0" name="Animation">&quot;stage&quot;&amp;Self.break</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="301835863355281">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="946636162865251" type="pl_shield">
+                            <param id="0" name="Object">e_template</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Add to" sid="393967757994459" type="e_template">
+                            <param id="0" name="Instance variable">break</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action behavior="ScrollTo" id="0" name="Shake" sid="459011436057323" type="camera">
+                            <param id="0" name="Magnitude">1</param>
+                            <param id="1" name="Duration">0.05</param>
+                            <param id="2" name="Mode">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="441251555031571">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="550864671155923" type="e_template">
+                                    <param id="0" name="Instance variable">break</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="810649754518238" type="e_template" />
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="461543912549959" type="camera">
+                                    <param id="0" name="Magnitude">4</param>
+                                    <param id="1" name="Duration">0.3</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

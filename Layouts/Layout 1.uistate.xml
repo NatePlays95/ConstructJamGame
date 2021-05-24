@@ -4,17 +4,17 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>249.283</position-x>
-        <position-y>79.5917</position-y>
-        <position-z>56.4474</position-z>
-        <lookat-x>249.283</lookat-x>
-        <lookat-y>79.5917</lookat-y>
+        <position-x>640</position-x>
+        <position-y>193.177</position-y>
+        <position-z>73.3815</position-z>
+        <lookat-x>640</lookat-x>
+        <lookat-y>193.177</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
-    <snap-to-grid>0</snap-to-grid>
-    <show-grid>0</show-grid>
-    <snap-width>32</snap-width>
-    <snap-height>32</snap-height>
+    <snap-to-grid>1</snap-to-grid>
+    <show-grid>1</show-grid>
+    <snap-width>8</snap-width>
+    <snap-height>8</snap-height>
     <show-collision-polys>0</show-collision-polys>
     <translucent-inactive-layers>0</translucent-inactive-layers>
     <properties>
@@ -25,7 +25,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <active-layer name="game" />
     <layers>
-        <layer locked="1" name="bg" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="bg" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="game" parallax-in-editor="0" visible="1" />
         <layer locked="1" name="hud" parallax-in-editor="0" visible="1" />
         <layer locked="1" name="cursor" parallax-in-editor="0" visible="1" />
