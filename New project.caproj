@@ -141,6 +141,9 @@
                     <behavior-type name="Sine2" sid="250597512078002">
                         <behavior id="Sin" />
                     </behavior-type>
+                    <behavior-type name="Physics" sid="566809458489786">
+                        <behavior id="Physics" />
+                    </behavior-type>
                 </behaviors>
                 <animation-folder>
                     <animation framecount="9" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="590756799129266" speed="0">
@@ -492,17 +495,21 @@
             <instance-variables>
                 <instance-variable name="isBroken" sid="265023293707721" type="boolean" />
                 <instance-variable name="isBoss" sid="620304284631049" type="boolean" />
+                <instance-variable name="hitTimer" sid="627112290449711" type="number" />
             </instance-variables>
         </family>
     </families>
     <layout-folder>
         <layout>Layout 1.xml</layout>
         <layout>Stage1.xml</layout>
+        <layout>Results.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>game logic.xml</event-sheet>
         <event-sheet>player logic.xml</event-sheet>
         <event-sheet>Stage1 sheet.xml</event-sheet>
+        <event-sheet>Results sheet.xml</event-sheet>
+        <event-sheet>fade logic.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />

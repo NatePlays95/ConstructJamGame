@@ -11,10 +11,13 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Layout 1</layout>
-        <layout active="1" order="3">Stage1</layout>
+        <layout order="3">Stage1</layout>
+        <layout order="5">Results</layout>
         <event-sheet order="1">game logic</event-sheet>
-        <event-sheet order="2">player logic</event-sheet>
+        <event-sheet active="1" order="2">player logic</event-sheet>
         <event-sheet order="4">Stage1 sheet</event-sheet>
+        <event-sheet order="6">Results sheet</event-sheet>
+        <event-sheet order="7">fade logic</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -31,7 +34,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="object-folder/breakables/" />
         <folder expanded="0" path="object-folder/player objects/" />
         <folder expanded="0" path="object-folder/tilesets/" />
-        <folder expanded="0" path="object-folder/hud/" />
+        <folder expanded="1" path="object-folder/hud/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />

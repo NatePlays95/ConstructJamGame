@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>fade logic</name>
+    <events>
+        <event-group description="" sid="923260749377168" title="Fades">
+            <sub-events>
+                <event-block sid="745173997572155">
+                    <conditions>
+                        <condition id="0" name="On function" sid="564561996513328" type="Function">
+                            <param id="0" name="Name">&quot;fadeout&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="303870265460171" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="317990011161000" type="hud_fade">
+                            <param id="0" name="Width">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="490900232831974" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Value">960</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="143704810979128">
+                    <conditions>
+                        <condition id="0" name="On function" sid="515673545450964" type="Function">
+                            <param id="0" name="Name">&quot;fadein&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="487936524143577" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="454499223881713" type="hud_fade">
+                            <param id="0" name="Width">480</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="426614497255119" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Value">-960</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="144470453729042">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="810208572929493" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="732285630447270">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="228507942561211" type="hud_fade">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Width">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="964495056926429" type="hud_fade">
+                                    <param id="0" name="Width">self.Width+self.mode*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="611930030959920">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="599353239139846" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="638740787442150" type="hud_fade">
+                                    <param id="0" name="Instance variable">mode</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="800942875281997">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="968334751674201" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="376894812805170">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="673764582498900" type="hud_fade">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Width">480</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="835765187414015" type="hud_fade">
+                                    <param id="0" name="Width">self.Width+self.mode*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="141835536527128">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="396155881113306" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="851428911365956" type="hud_fade">
+                                    <param id="0" name="Instance variable">mode</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

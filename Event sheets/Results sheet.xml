@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Results sheet</name>
+    <events>
+        <include>fade logic</include>
+        <event-block sid="529230142107749">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="760164955279533" type="System" />
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="362728715908619" type="text_score">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="135152693886305" type="text_combo">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="173875790800967" type="bar_combo">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="-15" name="Set visible" sid="547289984295172" type="bar_combo_edge">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="0" name="Call function" sid="797839187915825" type="Function">
+                    <param id="0" name="Name">&quot;fadein&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="485609942858998">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="335768733242062" type="System">
+                            <param id="0" name="Object">text_score</param>
+                            <param id="1" name="Expression">text_score.contents</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;text&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="772183305637187" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="579400167107711" type="text_score">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="556916793839360">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="605353804529510" type="System">
+                            <param id="0" name="Object">text_score</param>
+                            <param id="1" name="Expression">text_score.contents</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;finalscore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="254496238616050" type="System">
+                            <param id="0" name="Seconds">2</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="191352093981652" type="text_score">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                        <action id="0" name="Set text" sid="212707799206961" type="text_score">
+                            <param id="0" name="Text">&quot;final score: &quot; &amp; zeropad(SCORE,7)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="122728310498174">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="243537415479438" type="System">
+                                    <param id="0" name="First value">SCORE</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">HISCORE</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="563393673730109" type="System">
+                                    <param id="0" name="Seconds">0.5</param>
+                                </action>
+                                <action id="-15" name="Set visible" sid="971846912737966" type="text_combo">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="651432103223677" type="System">
+                                    <param id="0" name="Variable">HISCORE</param>
+                                    <param id="1" name="Value">SCORE</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="201693264387063" type="System">
+                                    <param id="0" name="Seconds">0.01</param>
+                                </action>
+                                <action id="0" name="Set local value" sid="629831521701844" type="WebStorage">
+                                    <param id="0" name="Key">&quot;highscore&quot;</param>
+                                    <param id="1" name="Value">HISCORE</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="901897311526797">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="901249313728092" type="System">
+                            <param id="0" name="Object">text_score</param>
+                            <param id="1" name="Expression">text_score.contents</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;return&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="986446674745156" type="System">
+                            <param id="0" name="Seconds">3</param>
+                        </action>
+                        <action id="-15" name="Set visible" sid="521382234629378" type="text_score">
+                            <param id="0" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="556064820068551">
+            <conditions>
+                <condition id="1" name="On any key pressed" sid="130573449474197" type="Keyboard" />
+                <condition id="-33" name="Pick by comparison" sid="286318380546873" type="System">
+                    <param id="0" name="Object">text_score</param>
+                    <param id="1" name="Expression">text_score.contents</param>
+                    <param id="2" name="Comparison">0</param>
+                    <param id="3" name="Value">&quot;return&quot;</param>
+                </condition>
+                <condition id="-9" name="Is visible" sid="564746699416297" type="text_score" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="954102385855890" type="System">
+                    <param id="0" name="Variable">SCORE</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="803948417624323" type="System">
+                    <param id="0" name="Variable">HISCORE</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="993838374428684" type="System">
+                    <param id="0" name="Layout">Stage1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

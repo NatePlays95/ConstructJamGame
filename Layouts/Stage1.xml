@@ -92,6 +92,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -118,6 +119,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -144,6 +146,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -170,6 +173,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -196,6 +200,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -222,6 +227,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -248,6 +254,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -274,6 +281,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -300,6 +308,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -326,6 +335,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -352,6 +362,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -378,6 +389,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -404,6 +416,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -430,6 +443,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -456,6 +470,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -482,6 +497,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -508,6 +524,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -534,6 +551,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -560,6 +578,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -586,6 +605,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -612,6 +632,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -638,6 +659,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -664,6 +686,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -690,6 +713,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -716,6 +740,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -742,6 +767,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -768,6 +794,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -794,6 +821,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -820,6 +848,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -846,6 +875,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -872,6 +902,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -898,6 +929,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -924,6 +956,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -950,6 +983,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -976,6 +1010,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1002,6 +1037,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1028,6 +1064,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>false</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
@@ -1054,6 +1091,7 @@
                     <instance-variables>
                         <isBroken>false</isBroken>
                         <isBoss>true</isBoss>
+                        <hitTimer>0</hitTimer>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Sine">
@@ -1080,6 +1118,20 @@
                                 <period-offset-random>0</period-offset-random>
                                 <magnitude>30</magnitude>
                                 <magnitude-random>0</magnitude-random>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>Yes</prevent-rotation>
+                                <density>10</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
                     </behavior-instances>
