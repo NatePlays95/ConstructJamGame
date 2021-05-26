@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Stage1 sheet</name>
+    <events>
+        <include>game logic</include>
+        <event-block sid="552651960430843">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="410937007115479" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="697107340849480" type="Function">
+                    <param id="0" name="Name">&quot;fadein&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="161988704085002" type="System">
+                    <param id="0" name="Variable">IS_TIMER_RUNNING</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="673300089689667" type="System">
+                    <param id="0" name="Variable">TIMER</param>
+                    <param id="1" name="Value">40</param>
+                </action>
+                <action id="-3" name="Create object" sid="973277355088626" type="System">
+                    <param id="0" name="Object to create">player_box</param>
+                    <param id="1" name="Layer">&quot;game&quot;</param>
+                    <param id="2" name="X">-100</param>
+                    <param id="3" name="Y">-100</param>
+                </action>
+                <action id="-3" name="Create object" sid="439368915854658" type="System">
+                    <param id="0" name="Object to create">shield</param>
+                    <param id="1" name="Layer">&quot;game&quot;</param>
+                    <param id="2" name="X">-200</param>
+                    <param id="3" name="Y">-200</param>
+                </action>
+                <action id="-3" name="Set position" sid="284441793040698" type="player_box">
+                    <param id="0" name="X">88</param>
+                    <param id="1" name="Y">248</param>
+                </action>
+                <action id="-3" name="Set position" sid="777276384515187" type="shield">
+                    <param id="0" name="X">160</param>
+                    <param id="1" name="Y">248</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="706131982103846">
+            <conditions>
+                <condition id="0" name="On function" sid="861660628847080" type="Function">
+                    <param id="0" name="Name">&quot;room_change&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="692411063799019">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="202160259675766" type="System">
+                            <param id="0" name="Variable">ROOM</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="929345778586175" type="camera">
+                            <param id="0" name="X">256</param>
+                            <param id="1" name="Y">152</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="476907158314916" type="player_box">
+                            <param id="0" name="X">88</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="920557762877139" type="shield">
+                            <param id="0" name="X">160</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="606769738015945" type="System">
+                            <param id="0" name="Variable">TIMER</param>
+                            <param id="1" name="Value">30</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="870814310088610">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="841728266275075" type="System">
+                            <param id="0" name="Variable">ROOM</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="277437122597570" type="camera">
+                            <param id="0" name="X">768</param>
+                            <param id="1" name="Y">152</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="725189013222533" type="player_box">
+                            <param id="0" name="X">704</param>
+                            <param id="1" name="Y">256</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="384765694854104" type="shield">
+                            <param id="0" name="X">728</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="179184682349864" type="System">
+                            <param id="0" name="Variable">TIMER</param>
+                            <param id="1" name="Value">50</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="432256759238967">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="241491518342826" type="System">
+                            <param id="0" name="Variable">ROOM</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="511548053322795" type="camera">
+                            <param id="0" name="X">1280</param>
+                            <param id="1" name="Y">152</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="321762132125866" type="player_box">
+                            <param id="0" name="X">1174</param>
+                            <param id="1" name="Y">256</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="571406710816071" type="shield">
+                            <param id="0" name="X">1190</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="967559074702592" type="System">
+                            <param id="0" name="Variable">TIMER</param>
+                            <param id="1" name="Value">60</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="696680103342702">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="248310355267502" type="System">
+                            <param id="0" name="Variable">ROOM</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="260196159445170" type="camera">
+                            <param id="0" name="X">1792</param>
+                            <param id="1" name="Y">152</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="985333783003756" type="player_box">
+                            <param id="0" name="X">1672</param>
+                            <param id="1" name="Y">256</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="523888532290965" type="shield">
+                            <param id="0" name="X">1690</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="739255414850102" type="System">
+                            <param id="0" name="Variable">TIMER</param>
+                            <param id="1" name="Value">70</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="159892476332217">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="708890555872425" type="System">
+                            <param id="0" name="Variable">ROOM</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="831814500474547" type="camera">
+                            <param id="0" name="X">2304</param>
+                            <param id="1" name="Y">152</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="228092707647636" type="player_box">
+                            <param id="0" name="X">2160</param>
+                            <param id="1" name="Y">256</param>
+                        </action>
+                        <action id="-3" name="Set position" sid="561280292812220" type="shield">
+                            <param id="0" name="X">2188</param>
+                            <param id="1" name="Y">248</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="306898725165485" type="System">
+                            <param id="0" name="Variable">TIMER</param>
+                            <param id="1" name="Value">99</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

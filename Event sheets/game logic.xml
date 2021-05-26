@@ -4,51 +4,612 @@
     <name>game logic</name>
     <events>
         <include>player logic</include>
-        <event-group description="" sid="425268662864626" title="Breakable">
+        <event-group description="" sid="425268662864626" title="Breakable Objects">
             <sub-events>
-                <event-block sid="768845221402680">
-                    <conditions>
-                        <condition id="-1" name="Every tick" sid="731344306812950" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="4" name="Set animation" sid="513361986387382" type="e_template">
-                            <param id="0" name="Animation">&quot;stage&quot;&amp;Self.break</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                    </actions>
-                </event-block>
                 <event-block sid="301835863355281">
                     <conditions>
-                        <condition id="0" name="On collision with another object" sid="946636162865251" type="pl_shield">
-                            <param id="0" name="Object">e_template</param>
+                        <condition id="0" name="On collision with another object" sid="946636162865251" type="shield">
+                            <param id="0" name="Object">Breakables</param>
+                        </condition>
+                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="251842514775179" type="Breakables">
+                            <param id="0" name="Instance variable">isBroken</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-11" name="Add to" sid="393967757994459" type="e_template">
-                            <param id="0" name="Instance variable">break</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action behavior="ScrollTo" id="0" name="Shake" sid="459011436057323" type="camera">
-                            <param id="0" name="Magnitude">1</param>
-                            <param id="1" name="Duration">0.05</param>
-                            <param id="2" name="Mode">0</param>
+                        <action id="5" name="Set frame" sid="759520418857299" type="Breakables">
+                            <param id="0" name="Frame number">self.AnimationFrame+1</param>
                         </action>
                     </actions>
                     <sub-events>
                         <event-block sid="441251555031571">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="550864671155923" type="e_template">
-                                    <param id="0" name="Instance variable">break</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">2</param>
+                                <condition id="3" name="Compare frame" sid="170921636174316" type="Breakables">
+                                    <param id="0" name="Comparison">0</param>
+                                    <param id="1" name="Number">self.AnimationFrameCount-1</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-9" name="Destroy" sid="810649754518238" type="e_template" />
                                 <action behavior="ScrollTo" id="0" name="Shake" sid="461543912549959" type="camera">
                                     <param id="0" name="Magnitude">4</param>
                                     <param id="1" name="Duration">0.3</param>
                                     <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Spawn another object" sid="786777232723728" type="Breakables">
+                                    <param id="0" name="Object">ptc_smoke</param>
+                                    <param id="1" name="Layer">&quot;bg&quot;</param>
+                                    <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="-8" name="Set angle" sid="153276362637586" type="ptc_smoke">
+                                    <param id="0" name="Angle">290</param>
+                                </action>
+                                <action id="-13" name="Set boolean" sid="817183010969009" type="Breakables">
+                                    <param id="0" name="Instance variable">isBroken</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="600957474146226" type="Function">
+                                    <param id="0" name="Name">&quot;check_completion&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="0" name="Call function" sid="359077563777617" type="Function">
+                                    <param id="0" name="Name">&quot;point_popup&quot;</param>
+                                    <param id="1" name="Parameter {n}">400+100*max(0, COMBO-2){###}breakables.x{###}breakables.y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="944614062151842">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="657001929151535" type="System" />
+                            </conditions>
+                            <actions>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="615803019770115" type="camera">
+                                    <param id="0" name="Magnitude">2</param>
+                                    <param id="1" name="Duration">0.1</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="528363021025506" type="Function">
+                                    <param id="0" name="Name">&quot;point_popup&quot;</param>
+                                    <param id="1" name="Parameter {n}">200+50*max(0, COMBO-2){###}breakables.x{###}breakables.y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-group description="" sid="332183101321461" title="Swinger">
+                            <sub-events>
+                                <event-block sid="474726058995959">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="619297174620671" type="b_shooter">
+                                            <param id="0" name="Instance variable">isBroken</param>
+                                        </condition>
+                                        <condition id="-4" name="Trigger once while true" sid="312762151697314" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Sine" id="0" name="Set active" sid="324602071991679" type="b_shooter">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action behavior="Sine2" id="0" name="Set active" sid="151156261633744" type="b_shooter">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <variable constant="0" name="TIMER" sid="821013596012228" static="0" type="number">99</variable>
+        <variable comment="0 no, 1 yes" constant="0" name="IS_TIMER_RUNNING" sid="863978161777710" static="0" type="number">0</variable>
+        <variable constant="0" name="STAGE" sid="898677220571558" static="0" type="number">1</variable>
+        <variable constant="0" name="ROOM" sid="427737827520097" static="0" type="number">1</variable>
+        <variable constant="0" name="SCORE" sid="219341555109121" static="0" type="number">0</variable>
+        <variable constant="0" name="COMBO" sid="112069032851684" static="0" type="number">0</variable>
+        <variable constant="0" name="COMBO_RECORD" sid="963751013751595" static="0" type="number">0</variable>
+        <variable constant="0" name="COMBO_TIMER" sid="706945891239460" static="0" type="number">0</variable>
+        <event-group description="" sid="407752930287693" title="Stage Progression">
+            <sub-events>
+                <event-group description="" sid="666308050493725" title="Room Completion">
+                    <sub-events>
+                        <variable constant="0" name="count" sid="821955282940977" static="0" type="number">0</variable>
+                        <event-block sid="792650286288065">
+                            <conditions>
+                                <condition id="0" name="On function" sid="379514366909113" type="Function">
+                                    <param id="0" name="Name">&quot;check_completion&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="770607908356325">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="591698996238626" type="System">
+                                            <param id="0" name="Object">Breakables</param>
+                                        </condition>
+                                        <condition id="1" name="Is overlapping another object" sid="783886913642223" type="Breakables">
+                                            <param id="0" name="Object">camera</param>
+                                        </condition>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="730734558918003" type="Breakables">
+                                            <param id="0" name="Instance variable">isBroken</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="881150952008222" type="System">
+                                            <param id="0" name="Variable">count</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="139455836553479">
+                                    <conditions>
+                                        <condition id="-8" name="Compare two values" sid="244435420057808" type="System">
+                                            <param id="0" name="First value">count</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Second value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="299024590257098" type="System">
+                                            <param id="0" name="Variable">IS_TIMER_RUNNING</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="367574950858977" type="System">
+                                            <param id="0" name="Seconds">0.01</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="144282156628476" type="System">
+                                            <param id="0" name="Variable">COMBO_TIMER</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="618398388687861" type="bar_combo">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="173518677953254" type="bar_combo_edge">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                        <action id="-15" name="Set visible" sid="369213097204935" type="text_combo">
+                                            <param id="0" name="Visibility">0</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="498663799795295">
+                                            <conditions>
+                                                <condition id="-33" name="Pick by comparison" sid="746982555736573" type="System">
+                                                    <param id="0" name="Object">text_score</param>
+                                                    <param id="1" name="Expression">text_score.contents</param>
+                                                    <param id="2" name="Comparison">0</param>
+                                                    <param id="3" name="Value">&quot;end&quot;</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-16" name="Wait" sid="359195294376184" type="System">
+                                                    <param id="0" name="Seconds">0.5</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="673906367002152" type="text_score">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="899985952225182" type="text_score">
+                                                    <param id="0" name="Text">&quot;time: &quot;&amp;max(0,int(TIMER))&amp;&quot;*100 = &quot; &amp; 100*max(0,int(TIMER))</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="984794196506103" type="Function">
+                                                    <param id="0" name="Name">&quot;point_popup&quot;</param>
+                                                    <param id="1" name="Parameter {n}">100*max(0,int(TIMER)){###}-100{###}-100</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="207466826531166" type="System">
+                                                    <param id="0" name="Seconds">0.5</param>
+                                                </action>
+                                                <action id="1" name="Append text" sid="146926276432132" type="text_score">
+                                                    <param id="0" name="Text">newline</param>
+                                                </action>
+                                                <action id="1" name="Append text" sid="281559289221633" type="text_score">
+                                                    <param id="0" name="Text">newline</param>
+                                                </action>
+                                                <action id="1" name="Append text" sid="209366109442026" type="text_score">
+                                                    <param id="0" name="Text">&quot;combo: &quot;&amp;int(COMBO_RECORD)&amp;&quot;*500 = &quot;&amp; 500*int(COMBO_RECORD)</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="284978212438020" type="Function">
+                                                    <param id="0" name="Name">&quot;point_popup&quot;</param>
+                                                    <param id="1" name="Parameter {n}">500*int(COMBO_RECORD){###}-100{###}-100</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="688634306259138" type="System">
+                                                    <param id="0" name="Seconds">2</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="515002798615866" type="Function">
+                                                    <param id="0" name="Name">&quot;fadeout&quot;</param>
+                                                    <param id="1" name="Parameter {n}"></param>
+                                                </action>
+                                                <action id="-10" name="Add to" sid="983412855213741" type="System">
+                                                    <param id="0" name="Variable">ROOM</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="-16" name="Wait" sid="926328689269221" type="System">
+                                                    <param id="0" name="Seconds">0.5</param>
+                                                </action>
+                                                <action behavior="Fade" id="0" name="Restart fade" sid="173856035490431" type="text_combo" />
+                                                <action behavior="Fade" id="0" name="Restart fade" sid="976204140560038" type="bar_combo_edge" />
+                                                <action behavior="Fade" id="0" name="Restart fade" sid="308777052434191" type="bar_combo" />
+                                                <action behavior="Fade" id="3" name="Set wait time" sid="427868490879887" type="text_combo">
+                                                    <param id="0" name="Wait time">0</param>
+                                                </action>
+                                                <action behavior="Fade" id="3" name="Set wait time" sid="801565234602860" type="bar_combo_edge">
+                                                    <param id="0" name="Wait time">0</param>
+                                                </action>
+                                                <action behavior="Fade" id="3" name="Set wait time" sid="833811001535702" type="bar_combo">
+                                                    <param id="0" name="Wait time">0</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="665694232312073" type="bar_combo">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="967977445222025" type="bar_combo_edge">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="338903016640563" type="text_combo">
+                                                    <param id="0" name="Visibility">1</param>
+                                                </action>
+                                                <action id="-15" name="Set visible" sid="951187750940197" type="text_score">
+                                                    <param id="0" name="Visibility">0</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="530572072658297" type="System">
+                                                    <param id="0" name="Variable">COMBO</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="-9" name="Set value" sid="121985734784303" type="System">
+                                                    <param id="0" name="Variable">COMBO_RECORD</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="746488806148557" type="Function">
+                                                    <param id="0" name="Name">&quot;room_change&quot;</param>
+                                                    <param id="1" name="Parameter {n}">ROOM</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="825757127063246">
+                    <conditions>
+                        <condition id="0" name="On function" sid="178641593999068" type="Function">
+                            <param id="0" name="Name">&quot;room_change&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Physics" id="15" name="Set velocity" sid="631899458410315" type="shield">
+                            <param id="0" name="X component">0</param>
+                            <param id="1" name="Y component">0</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="515801414874200" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="319119129927956" type="Function">
+                            <param id="0" name="Name">&quot;fadein&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="970119137116518" type="System">
+                            <param id="0" name="Variable">IS_TIMER_RUNNING</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="728498367155919">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="830954447762651" type="System">
+                                    <param id="0" name="Object">text_score</param>
+                                    <param id="1" name="Expression">text_score.contents</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;stageroom&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="728865684704522" type="text_score">
+                                    <param id="0" name="Text">&quot;stage &quot; &amp; STAGE &amp; &quot; room &quot; &amp; ROOM</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="461267274298235" title="Fades">
+            <sub-events>
+                <event-block sid="432933978909721">
+                    <conditions>
+                        <condition id="0" name="On function" sid="468687452642923" type="Function">
+                            <param id="0" name="Name">&quot;fadeout&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="196176334687575" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="915656265091315" type="hud_fade">
+                            <param id="0" name="Width">0</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="689743268970754" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Value">960</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="658065844947897">
+                    <conditions>
+                        <condition id="0" name="On function" sid="632036709537958" type="Function">
+                            <param id="0" name="Name">&quot;fadein&quot;</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="301429110347697" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-5" name="Set width" sid="194384715818626" type="hud_fade">
+                            <param id="0" name="Width">480</param>
+                        </action>
+                        <action id="-10" name="Set value" sid="331709926177769" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Value">-960</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="981205906644169">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="676964673567363" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="141367210693675">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="469196916441376" type="hud_fade">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Width">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="565139803366084" type="hud_fade">
+                                    <param id="0" name="Width">self.Width+self.mode*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="488258553156552">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="607918849076932" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="420518951082760" type="hud_fade">
+                                    <param id="0" name="Instance variable">mode</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="548152539934295">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="222320677787279" type="hud_fade">
+                            <param id="0" name="Instance variable">mode</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="937806404895663">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="574704429724855" type="hud_fade">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Width">480</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="330258340391139" type="hud_fade">
+                                    <param id="0" name="Width">self.Width+self.mode*dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="185039051689718">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="526906676822833" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="562458877445918" type="hud_fade">
+                                    <param id="0" name="Instance variable">mode</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="616764597179370" title="Score">
+            <sub-events>
+                <event-group description="" sid="753681842742100" title="Timer">
+                    <sub-events>
+                        <event-block sid="534419210919615">
+                            <conditions>
+                                <condition id="-33" name="Pick by comparison" sid="327997025123019" type="System">
+                                    <param id="0" name="Object">text_score</param>
+                                    <param id="1" name="Expression">text_score.contents</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">&quot;time&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="735042072790541" type="text_score">
+                                    <param id="0" name="Text">&quot;time&quot;&amp; newline &amp; int(max(0,TIMER))</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="239562222078766">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="205580675091452" type="System">
+                                    <param id="0" name="Variable">TIMER</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="717492390169561" type="System">
+                                    <param id="0" name="Variable">IS_TIMER_RUNNING</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="727352252933365" type="System">
+                                    <param id="0" name="Variable">TIMER</param>
+                                    <param id="1" name="Value">dt</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="617182976615620" title="Popup">
+                    <sub-events>
+                        <comment>0 is value, 1 is x, 2 is y</comment>
+                        <event-block sid="258704330130481">
+                            <conditions>
+                                <condition id="0" name="On function" sid="116542959255199" type="Function">
+                                    <param id="0" name="Name">&quot;point_popup&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="389225987460048" type="System">
+                                    <param id="0" name="Object to create">text_points</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="X">Function.Param(1)</param>
+                                    <param id="3" name="Y">Function.Param(2)</param>
+                                </action>
+                                <action id="0" name="Set text" sid="910813291444806" type="text_points">
+                                    <param id="0" name="Text">Function.Param(0)</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="981356760002476" type="System">
+                                    <param id="0" name="Variable">SCORE</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                                <action id="0" name="Call function" sid="452620589982661" type="Function">
+                                    <param id="0" name="Name">&quot;combo&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="825718392491951">
+                                    <conditions>
+                                        <condition id="-33" name="Pick by comparison" sid="829325503821513" type="System">
+                                            <param id="0" name="Object">text_score</param>
+                                            <param id="1" name="Expression">text_score.contents</param>
+                                            <param id="2" name="Comparison">0</param>
+                                            <param id="3" name="Value">&quot;score&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Set text" sid="871262234384760" type="text_score">
+                                            <param id="0" name="Text">&quot;score: &quot;&amp; zeropad(SCORE,7)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="999327708668339">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="183471658701676" type="System">
+                            <param id="0" name="Variable">COMBO_TIMER</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="567681203848667" type="System">
+                            <param id="0" name="Variable">IS_TIMER_RUNNING</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="279169417734609" type="System">
+                            <param id="0" name="Variable">COMBO_TIMER</param>
+                            <param id="1" name="Value">dt</param>
+                        </action>
+                        <action id="-5" name="Set width" sid="781802146758175" type="bar_combo">
+                            <param id="0" name="Width">max(0,COMBO_TIMER*64/3)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="183321060933943">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="214310629566195" type="System" />
+                        <condition id="-4" name="Trigger once while true" sid="586411778268770" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="893015080402382">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="463735589891278" type="System">
+                                    <param id="0" name="Variable">COMBO</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">COMBO_RECORD</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="485626924908809" type="System">
+                                    <param id="0" name="Variable">COMBO_RECORD</param>
+                                    <param id="1" name="Value">COMBO</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="966961468075058">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="150427210815311" type="System">
+                                    <param id="0" name="Variable">COMBO</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="728516172946207">
+                    <conditions>
+                        <condition id="0" name="On function" sid="432518832524867" type="Function">
+                            <param id="0" name="Name">&quot;combo&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="129292826158167" type="System">
+                            <param id="0" name="Variable">COMBO</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="164682750883041" type="System">
+                            <param id="0" name="Variable">COMBO_TIMER</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="0" name="Set text" sid="827047387064542" type="text_combo">
+                            <param id="0" name="Text">&quot;combo&quot; &amp; newline &amp; COMBO &amp; (COMBO&gt;6?&quot;!&quot;:&quot;&quot;)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="347122640178310">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="182515233912640" type="System">
+                                    <param id="0" name="Variable">COMBO</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Fade" id="0" name="Restart fade" sid="607339304004620" type="text_combo" />
+                                <action behavior="Fade" id="0" name="Restart fade" sid="214692978280598" type="bar_combo_edge" />
+                                <action behavior="Fade" id="0" name="Restart fade" sid="670149992403086" type="bar_combo" />
+                                <action behavior="Fade" id="3" name="Set wait time" sid="682710453573468" type="text_combo">
+                                    <param id="0" name="Wait time">3</param>
+                                </action>
+                                <action behavior="Fade" id="3" name="Set wait time" sid="907608031972116" type="bar_combo_edge">
+                                    <param id="0" name="Wait time">3</param>
+                                </action>
+                                <action behavior="Fade" id="3" name="Set wait time" sid="802524041864068" type="bar_combo">
+                                    <param id="0" name="Wait time">3</param>
                                 </action>
                             </actions>
                         </event-block>

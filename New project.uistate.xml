@@ -11,8 +11,10 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout order="0">Layout 1</layout>
+        <layout active="1" order="3">Stage1</layout>
         <event-sheet order="1">game logic</event-sheet>
-        <event-sheet active="1" order="2">player logic</event-sheet>
+        <event-sheet order="2">player logic</event-sheet>
+        <event-sheet order="4">Stage1 sheet</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -22,20 +24,31 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </properties>
     <families-expanded root="1">
         <family expanded="0" name="SolidTiles" />
+        <family expanded="1" name="Breakables" />
     </families-expanded>
     <folders-expanded>
         <folder expanded="1" path="object-folder/" />
+        <folder expanded="1" path="object-folder/breakables/" />
+        <folder expanded="0" path="object-folder/player objects/" />
+        <folder expanded="0" path="object-folder/tilesets/" />
+        <folder expanded="0" path="object-folder/hud/" />
         <folder expanded="1" path="layout-folder/" />
         <folder expanded="1" path="event-folder/" />
         <folder expanded="1" path="file-folder/" />
         <folder expanded="1" path="sound-folder/" />
         <folder expanded="1" path="music-folder/" />
         <folder expanded="0" path="file-folder/Icons/" />
+        <folder expanded="1" path="animation-folder/e_template/" />
+        <folder expanded="1" path="animation-folder/b_small/" />
+        <folder expanded="1" path="animation-folder/b_tall/" />
+        <folder expanded="1" path="animation-folder/b_medium/" />
+        <folder expanded="1" path="animation-folder/b_shooter/" />
+        <folder expanded="1" path="animation-folder/shield/" />
         <folder expanded="1" path="animation-folder/player_box/" />
+        <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/hud_fade/" />
+        <folder expanded="1" path="animation-folder/bar_combo_edge/" />
         <folder expanded="1" path="animation-folder/pl_cursor/" />
         <folder expanded="1" path="animation-folder/pl_aim/" />
-        <folder expanded="1" path="animation-folder/pl_shield/" />
-        <folder expanded="1" path="animation-folder/camera/" />
-        <folder expanded="1" path="animation-folder/e_template/" />
     </folders-expanded>
 </c2uistate>

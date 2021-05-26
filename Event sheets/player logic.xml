@@ -362,22 +362,46 @@
                         <condition id="-2" name="On start of layout" sid="308958553911476" type="System" />
                     </conditions>
                     <actions>
-                        <action behavior="Physics" id="12" name="Set world gravity" sid="744335177545358" type="pl_shield">
+                        <action behavior="Physics" id="12" name="Set world gravity" sid="744335177545358" type="shield">
                             <param id="0" name="Gravity">5</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-group description="" disabled="1" sid="632916347989795" title="Physics Behaviour">
+                <event-group description="" sid="632916347989795" title="Physics Behaviour">
                     <sub-events>
-                        <event-block disabled="1" sid="681474153193247">
+                        <event-block sid="681474153193247">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="384893856017740" type="pl_shield">
+                                <condition id="0" name="On collision with another object" sid="384893856017740" type="shield">
                                     <param id="0" name="Object">tm_test</param>
                                 </condition>
-                                <condition behavior="Physics" id="1" name="Compare velocity" sid="663437071650475" type="pl_shield">
+                                <condition behavior="Physics" id="1" name="Compare velocity" sid="663437071650475" type="shield">
                                     <param id="0" name="Which">2</param>
                                     <param id="1" name="Comparison">5</param>
                                     <param id="2" name="Value">5</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="106019241886571">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="860544031841465" type="shield">
+                                            <param id="0" name="Instance variable">timer</param>
+                                            <param id="1" name="Comparison">3</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="902089147656654" type="shield">
+                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="544495672837432">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="657523471532519" type="shield">
+                                    <param id="0" name="Object">player_box</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -386,57 +410,27 @@
                                     <param id="1" name="Duration">0.05</param>
                                     <param id="2" name="Mode">0</param>
                                 </action>
-                            </actions>
-                            <sub-events>
-                                <event-block disabled="1" sid="106019241886571">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="860544031841465" type="pl_shield">
-                                            <param id="0" name="Instance variable">timer</param>
-                                            <param id="1" name="Comparison">3</param>
-                                            <param id="2" name="Value">0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="0" name="Set speed" sid="902089147656654" type="pl_shield">
-                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block disabled="1" sid="544495672837432">
-                            <conditions>
-                                <condition id="0" name="On collision with another object" sid="657523471532519" type="pl_shield">
-                                    <param id="0" name="Object">player_box</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="ScrollTo" id="0" name="Shake" sid="928730614733673" type="camera">
-                                    <param id="0" name="Magnitude">4</param>
-                                    <param id="1" name="Duration">0.3</param>
-                                    <param id="2" name="Mode">0</param>
-                                </action>
-                                <action id="-10" name="Set value" sid="644549169727080" type="pl_shield">
+                                <action id="-10" name="Set value" sid="644549169727080" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Value">0.5</param>
                                 </action>
-                                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="438405953850898" type="pl_shield">
+                                <action behavior="Physics" id="5" name="Apply impulse at angle" sid="438405953850898" type="shield">
                                     <param id="0" name="Impulse">sqrt(player_box.Platform.Speed)</param>
-                                    <param id="1" name="Angle">angle(player_box.ImagePointX(0),player_box.ImagePointY(0), Self.X, self.Y)</param>
+                                    <param id="1" name="Angle">angle(player_box.ImagePointX(3),player_box.ImagePointY(3), Self.X, self.Y)</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block disabled="1" sid="583459528906114">
+                                <event-block sid="583459528906114">
                                     <conditions>
-                                        <condition id="9" name="Is overlapping at offset" sid="557820733039627" type="pl_shield">
+                                        <condition id="9" name="Is overlapping at offset" sid="557820733039627" type="shield">
                                             <param id="0" name="Object">tm_test</param>
                                             <param id="1" name="Offset X">0</param>
                                             <param id="2" name="Offset Y">2</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="318717341898766" type="pl_shield">
+                                        <action behavior="Physics" id="5" name="Apply impulse at angle" sid="318717341898766" type="shield">
                                             <param id="0" name="Impulse">5</param>
                                             <param id="1" name="Angle">270</param>
                                             <param id="2" name="Image point">0</param>
@@ -445,16 +439,16 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block disabled="1" sid="363274351419877">
+                        <event-block sid="363274351419877">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="228571921027085" type="pl_shield">
+                                <condition id="-7" name="Compare instance variable" sid="228571921027085" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-12" name="Subtract from" sid="937102859025074" type="pl_shield">
+                                <action id="-12" name="Subtract from" sid="937102859025074" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Value">dt</param>
                                 </action>
@@ -462,14 +456,14 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="781793862525545" title="Bullet Behaviour">
+                <event-group description="" disabled="1" sid="781793862525545" title="Bullet Behaviour">
                     <sub-events>
-                        <event-block sid="165908028478001">
+                        <event-block disabled="1" sid="165908028478001">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="742633131548309" type="pl_shield">
+                                <condition id="0" name="On collision with another object" sid="742633131548309" type="shield">
                                     <param id="0" name="Object">tm_test</param>
                                 </condition>
-                                <condition behavior="Bullet" id="0" name="Compare speed" sid="144974475535723" type="pl_shield">
+                                <condition behavior="Bullet" id="0" name="Compare speed" sid="144974475535723" type="shield">
                                     <param id="0" name="Comparison">4</param>
                                     <param id="1" name="Speed">5</param>
                                 </condition>
@@ -482,33 +476,33 @@
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="885920961027244">
+                                <event-block disabled="1" sid="885920961027244">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="225778819715333" type="pl_shield">
+                                        <condition id="-7" name="Compare instance variable" sid="225778819715333" type="shield">
                                             <param id="0" name="Instance variable">timer</param>
                                             <param id="1" name="Comparison">3</param>
                                             <param id="2" name="Value">0</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Bullet" id="0" name="Set speed" sid="729562807072022" type="pl_shield">
+                                        <action behavior="Bullet" id="0" name="Set speed" sid="729562807072022" type="shield">
                                             <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="415184131380083">
+                        <event-block disabled="1" sid="415184131380083">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="777865944836874" type="pl_shield">
+                                <condition id="0" name="On collision with another object" sid="777865944836874" type="shield">
                                     <param id="0" name="Object">player_box</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="235010150312865" type="pl_shield">
+                                <action behavior="Bullet" id="0" name="Set speed" sid="235010150312865" type="shield">
                                     <param id="0" name="Speed">self.bullet.speed + player_box.Platform.Speed/2</param>
                                 </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="453452422027922" type="pl_shield">
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="453452422027922" type="shield">
                                     <param id="0" name="Angle">angle(player_box.ImagePointX(0),player_box.ImagePointY(0), Self.X, self.Y)</param>
                                 </action>
                                 <action behavior="ScrollTo" id="0" name="Shake" sid="669925891269318" type="camera">
@@ -516,38 +510,38 @@
                                     <param id="1" name="Duration">0.3</param>
                                     <param id="2" name="Mode">0</param>
                                 </action>
-                                <action id="-10" name="Set value" sid="396427968343043" type="pl_shield">
+                                <action id="-10" name="Set value" sid="396427968343043" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Value">0.5</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="477725016381599">
+                                <event-block disabled="1" sid="477725016381599">
                                     <conditions>
-                                        <condition id="9" name="Is overlapping at offset" sid="466626625963021" type="pl_shield">
+                                        <condition id="9" name="Is overlapping at offset" sid="466626625963021" type="shield">
                                             <param id="0" name="Object">tm_test</param>
                                             <param id="1" name="Offset X">0</param>
                                             <param id="2" name="Offset Y">2</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="743491194326153" type="pl_shield">
-                                            <param id="0" name="Angle">(pl_shield.x&gt;player_box.x?-20:200)</param>
+                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="743491194326153" type="shield">
+                                            <param id="0" name="Angle">(shield.x&gt;player_box.x?-20:200)</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="830202322229783">
+                        <event-block disabled="1" sid="830202322229783">
                             <conditions>
-                                <condition id="-7" name="Compare instance variable" sid="542649839664837" type="pl_shield">
+                                <condition id="-7" name="Compare instance variable" sid="542649839664837" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Comparison">4</param>
                                     <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-12" name="Subtract from" sid="403828078752900" type="pl_shield">
+                                <action id="-12" name="Subtract from" sid="403828078752900" type="shield">
                                     <param id="0" name="Instance variable">timer</param>
                                     <param id="1" name="Value">dt</param>
                                 </action>
@@ -636,7 +630,7 @@
                                 <condition id="-1" name="Every tick" sid="244740306483719" type="System" />
                             </conditions>
                             <actions>
-                                <action id="-3" name="Set position" sid="395593785375605" type="pl_ptc_run">
+                                <action id="-3" name="Set position" sid="395593785375605" type="ptc_run">
                                     <param id="0" name="X">-100</param>
                                     <param id="1" name="Y">-100</param>
                                 </action>
@@ -648,7 +642,7 @@
                                 <condition behavior="Platform" id="2" name="Is on floor" sid="404039669654355" type="player_box" />
                             </conditions>
                             <actions>
-                                <action id="-3" name="Set position" sid="239345269175268" type="pl_ptc_run">
+                                <action id="-3" name="Set position" sid="239345269175268" type="ptc_run">
                                     <param id="0" name="X">player_box.x</param>
                                     <param id="1" name="Y">player_box.y</param>
                                 </action>
@@ -663,7 +657,7 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-8" name="Set angle" sid="367202157919800" type="pl_ptc_run">
+                                        <action id="-8" name="Set angle" sid="367202157919800" type="ptc_run">
                                             <param id="0" name="Angle">195</param>
                                         </action>
                                     </actions>
@@ -677,7 +671,7 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-8" name="Set angle" sid="581220574242058" type="pl_ptc_run">
+                                        <action id="-8" name="Set angle" sid="581220574242058" type="ptc_run">
                                             <param id="0" name="Angle">-15</param>
                                         </action>
                                     </actions>
@@ -691,19 +685,19 @@
                             </conditions>
                             <actions>
                                 <action id="0" name="Spawn another object" sid="786990332468305" type="player_box">
-                                    <param id="0" name="Object">pl_ptc_jump</param>
+                                    <param id="0" name="Object">ptc_jump</param>
                                     <param id="1" name="Layer">&quot;game&quot;</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
-                                <action id="-8" name="Set angle" sid="598468363110436" type="pl_ptc_jump">
+                                <action id="-8" name="Set angle" sid="598468363110436" type="ptc_jump">
                                     <param id="0" name="Angle">-15</param>
                                 </action>
                                 <action id="0" name="Spawn another object" sid="313026318070191" type="player_box">
-                                    <param id="0" name="Object">pl_ptc_jump</param>
+                                    <param id="0" name="Object">ptc_jump</param>
                                     <param id="1" name="Layer">&quot;game&quot;</param>
                                     <param id="2" name="Image point">0</param>
                                 </action>
-                                <action id="-8" name="Set angle" sid="119892077302017" type="pl_ptc_jump">
+                                <action id="-8" name="Set angle" sid="119892077302017" type="ptc_jump">
                                     <param id="0" name="Angle">195</param>
                                 </action>
                             </actions>
@@ -729,19 +723,19 @@
                                     </conditions>
                                     <actions>
                                         <action id="0" name="Spawn another object" sid="256102629789781" type="player_box">
-                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="0" name="Object">ptc_jump</param>
                                             <param id="1" name="Layer">&quot;game&quot;</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="178752870246188" type="pl_ptc_jump">
+                                        <action id="-8" name="Set angle" sid="178752870246188" type="ptc_jump">
                                             <param id="0" name="Angle">75</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="560777886723437" type="player_box">
-                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="0" name="Object">ptc_jump</param>
                                             <param id="1" name="Layer">&quot;game&quot;</param>
                                             <param id="2" name="Image point">1</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="244227323348404" type="pl_ptc_jump">
+                                        <action id="-8" name="Set angle" sid="244227323348404" type="ptc_jump">
                                             <param id="0" name="Angle">285</param>
                                         </action>
                                     </actions>
@@ -756,19 +750,19 @@
                                     </conditions>
                                     <actions>
                                         <action id="0" name="Spawn another object" sid="199023297443541" type="player_box">
-                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="0" name="Object">ptc_jump</param>
                                             <param id="1" name="Layer">&quot;game&quot;</param>
                                             <param id="2" name="Image point">2</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="683117533373162" type="pl_ptc_jump">
+                                        <action id="-8" name="Set angle" sid="683117533373162" type="ptc_jump">
                                             <param id="0" name="Angle">105</param>
                                         </action>
                                         <action id="0" name="Spawn another object" sid="553750913594797" type="player_box">
-                                            <param id="0" name="Object">pl_ptc_jump</param>
+                                            <param id="0" name="Object">ptc_jump</param>
                                             <param id="1" name="Layer">&quot;game&quot;</param>
                                             <param id="2" name="Image point">2</param>
                                         </action>
-                                        <action id="-8" name="Set angle" sid="546982587425789" type="pl_ptc_jump">
+                                        <action id="-8" name="Set angle" sid="546982587425789" type="ptc_jump">
                                             <param id="0" name="Angle">255</param>
                                         </action>
                                     </actions>
@@ -781,7 +775,7 @@
                                 <condition id="-1" name="Every tick" sid="598931996945121" type="System" />
                             </conditions>
                             <actions>
-                                <action id="-3" name="Set position" sid="785008066635853" type="pl_ptc_wallslide">
+                                <action id="-3" name="Set position" sid="785008066635853" type="ptc_wallslide">
                                     <param id="0" name="X">-100</param>
                                     <param id="1" name="Y">-100</param>
                                 </action>
@@ -806,7 +800,7 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Set position" sid="845008952301239" type="pl_ptc_wallslide">
+                                        <action id="-3" name="Set position" sid="845008952301239" type="ptc_wallslide">
                                             <param id="0" name="X">player_box.ImagePointX(2)</param>
                                             <param id="1" name="Y">player_box.ImagePointY(2)</param>
                                         </action>
@@ -821,7 +815,7 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-3" name="Set position" sid="528621544286783" type="pl_ptc_wallslide">
+                                        <action id="-3" name="Set position" sid="528621544286783" type="ptc_wallslide">
                                             <param id="0" name="X">player_box.ImagePointX(1)</param>
                                             <param id="1" name="Y">player_box.ImagePointY(1)</param>
                                         </action>
