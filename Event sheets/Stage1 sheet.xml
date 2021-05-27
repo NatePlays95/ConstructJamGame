@@ -37,6 +37,12 @@
                     <param id="0" name="Variable">TIMER</param>
                     <param id="1" name="Value">0.5</param>
                 </action>
+                <action id="-15" name="Set visible" sid="466361999050354" type="bar_combo">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="557897051062949" type="bar_combo_edge">
+                    <param id="0" name="Visibility">1</param>
+                </action>
                 <action id="0" name="Call function" sid="298651681630959" type="Function">
                     <param id="0" name="Name">&quot;player_enable&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
@@ -57,7 +63,14 @@
                     <param id="0" name="Name">&quot;room_change&quot;</param>
                 </condition>
             </conditions>
-            <actions />
+            <actions>
+                <action id="-15" name="Set visible" sid="212591919289742" type="bar_combo">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+                <action id="-15" name="Set visible" sid="463594954348369" type="bar_combo_edge">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="692411063799019">
                     <conditions>
@@ -131,7 +144,7 @@
                             <param id="1" name="Y">256</param>
                         </action>
                         <action id="-3" name="Set position" sid="571406710816071" type="shield">
-                            <param id="0" name="X">1190</param>
+                            <param id="0" name="X">1194</param>
                             <param id="1" name="Y">248</param>
                         </action>
                         <action id="-9" name="Set value" sid="967559074702592" type="System">
@@ -158,7 +171,7 @@
                             <param id="1" name="Y">256</param>
                         </action>
                         <action id="-3" name="Set position" sid="523888532290965" type="shield">
-                            <param id="0" name="X">1690</param>
+                            <param id="0" name="X">1694</param>
                             <param id="1" name="Y">248</param>
                         </action>
                         <action id="-9" name="Set value" sid="739255414850102" type="System">

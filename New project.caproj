@@ -42,8 +42,9 @@
         <width>480</width>
         <height>270</height>
     </window-size>
-    <pixel-rounding>0</pixel-rounding>
+    <pixel-rounding>1</pixel-rounding>
     <preview-effects>1</preview-effects>
+    <first-layout>Menu</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">No</prop>
@@ -477,6 +478,14 @@
             <plugin id="Particles" />
             <texture />
         </object-type>
+        <object-type name="controls" sid="249377174331088">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="856209032846390" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="SolidTiles" plugin-id="Tilemap" sid="430722441375973">
@@ -503,6 +512,7 @@
         <layout>Layout 1.xml</layout>
         <layout>Stage1.xml</layout>
         <layout>Results.xml</layout>
+        <layout>Menu.xml</layout>
     </layout-folder>
     <event-folder>
         <event-sheet>game logic.xml</event-sheet>
@@ -510,6 +520,7 @@
         <event-sheet>Stage1 sheet.xml</event-sheet>
         <event-sheet>Results sheet.xml</event-sheet>
         <event-sheet>fade logic.xml</event-sheet>
+        <event-sheet>Menu Sheet.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />

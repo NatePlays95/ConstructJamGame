@@ -158,13 +158,13 @@
                         <character-height>8</character-height>
                         <character-set> !`#$%&amp;´()x+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_*abcdefghijklmnopqrstuvwxyz</character-set>
                         <text>press any key to return</text>
-                        <scale>2</scale>
+                        <scale>1</scale>
                         <initial-visibility>Invisible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
                         <vertical-alignment>Top</vertical-alignment>
                         <hotspot>Center</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>-4</character-spacing>
+                        <character-spacing>-2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <instance-variables>
@@ -174,7 +174,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>240</x>
-                        <y>256</y>
+                        <y>264</y>
                         <z>0</z>
                         <width>297</width>
                         <height>24</height>
@@ -188,7 +188,7 @@
             </instances>
             <effects />
         </layer>
-        <layer name="hud" sid="847255394788371">
+        <layer name="fade" sid="662063688584234">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>

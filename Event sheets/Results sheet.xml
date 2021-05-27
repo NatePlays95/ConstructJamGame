@@ -12,15 +12,6 @@
                 <action id="-15" name="Set visible" sid="362728715908619" type="text_score">
                     <param id="0" name="Visibility">0</param>
                 </action>
-                <action id="-15" name="Set visible" sid="135152693886305" type="text_combo">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="173875790800967" type="bar_combo">
-                    <param id="0" name="Visibility">0</param>
-                </action>
-                <action id="-15" name="Set visible" sid="547289984295172" type="bar_combo_edge">
-                    <param id="0" name="Visibility">0</param>
-                </action>
                 <action id="0" name="Call function" sid="797839187915825" type="Function">
                     <param id="0" name="Name">&quot;fadein&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
