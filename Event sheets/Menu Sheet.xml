@@ -8,7 +8,12 @@
             <conditions>
                 <condition id="-2" name="On start of layout" sid="987202209650455" type="System" />
             </conditions>
-            <actions />
+            <actions>
+                <action id="0" name="Call function" sid="372806780577919" type="Function">
+                    <param id="0" name="Name">&quot;fadein&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
             <sub-events>
                 <event-block sid="229608925227505">
                     <conditions>

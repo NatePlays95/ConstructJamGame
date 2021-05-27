@@ -390,11 +390,7 @@
                                             <param id="2" name="Value">0</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="0" name="Set speed" sid="902089147656654" type="shield">
-                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -463,10 +459,6 @@
                                 <condition id="0" name="On collision with another object" sid="742633131548309" type="shield">
                                     <param id="0" name="Object">tm_test</param>
                                 </condition>
-                                <condition behavior="Bullet" id="0" name="Compare speed" sid="144974475535723" type="shield">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Speed">5</param>
-                                </condition>
                             </conditions>
                             <actions>
                                 <action behavior="ScrollTo" id="0" name="Shake" sid="449187488443417" type="camera">
@@ -484,11 +476,7 @@
                                             <param id="2" name="Value">0</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="0" name="Set speed" sid="729562807072022" type="shield">
-                                            <param id="0" name="Speed">max(0, self.Bullet.Speed*0.7)</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -499,12 +487,6 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Bullet" id="0" name="Set speed" sid="235010150312865" type="shield">
-                                    <param id="0" name="Speed">self.bullet.speed + player_box.Platform.Speed/2</param>
-                                </action>
-                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="453452422027922" type="shield">
-                                    <param id="0" name="Angle">angle(player_box.ImagePointX(0),player_box.ImagePointY(0), Self.X, self.Y)</param>
-                                </action>
                                 <action behavior="ScrollTo" id="0" name="Shake" sid="669925891269318" type="camera">
                                     <param id="0" name="Magnitude">4</param>
                                     <param id="1" name="Duration">0.3</param>
@@ -524,11 +506,7 @@
                                             <param id="2" name="Offset Y">2</param>
                                         </condition>
                                     </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="743491194326153" type="shield">
-                                            <param id="0" name="Angle">(shield.x&gt;player_box.x?-20:200)</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
                                 </event-block>
                             </sub-events>
                         </event-block>

@@ -26,7 +26,7 @@
                     <param id="3" name="Y">-200</param>
                 </action>
                 <action id="-3" name="Set position" sid="284441793040698" type="player_box">
-                    <param id="0" name="X">88</param>
+                    <param id="0" name="X">108</param>
                     <param id="1" name="Y">248</param>
                 </action>
                 <action id="-3" name="Set position" sid="777276384515187" type="shield">
@@ -167,11 +167,11 @@
                             <param id="1" name="Y">152</param>
                         </action>
                         <action id="-3" name="Set position" sid="985333783003756" type="player_box">
-                            <param id="0" name="X">1672</param>
+                            <param id="0" name="X">1688</param>
                             <param id="1" name="Y">256</param>
                         </action>
                         <action id="-3" name="Set position" sid="523888532290965" type="shield">
-                            <param id="0" name="X">1694</param>
+                            <param id="0" name="X">1720</param>
                             <param id="1" name="Y">248</param>
                         </action>
                         <action id="-9" name="Set value" sid="739255414850102" type="System">
@@ -194,11 +194,11 @@
                             <param id="1" name="Y">152</param>
                         </action>
                         <action id="-3" name="Set position" sid="228092707647636" type="player_box">
-                            <param id="0" name="X">2160</param>
+                            <param id="0" name="X">2184</param>
                             <param id="1" name="Y">256</param>
                         </action>
                         <action id="-3" name="Set position" sid="561280292812220" type="shield">
-                            <param id="0" name="X">2188</param>
+                            <param id="0" name="X">2224</param>
                             <param id="1" name="Y">248</param>
                         </action>
                         <action id="-9" name="Set value" sid="306898725165485" type="System">
