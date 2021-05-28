@@ -18,6 +18,9 @@
                     <param id="0" name="Name">&quot;playMusic&quot;</param>
                     <param id="1" name="Parameter {n}">&quot;Title_Screen&quot;</param>
                 </action>
+                <action id="1" name="Get item" sid="710159735758652" type="LocalStorage">
+                    <param id="0" name="Key">&quot;highscore&quot;</param>
+                </action>
                 <action id="4" name="Preload" sid="871616198641463" type="Audio">
                     <param id="0" name="Audio file">Standard_level</param>
                 </action>
@@ -40,7 +43,7 @@
                     </conditions>
                     <actions>
                         <action id="0" name="Set text" sid="328932145391653" type="text_score">
-                            <param id="0" name="Text">&quot;high score: &quot;&amp;WebStorage.LocalValue(&quot;highscore&quot;)</param>
+                            <param id="0" name="Text">&quot;high score: &quot;&amp;zeropad(HISCORE,7)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -62,6 +65,36 @@
                     <param id="0" name="Layout">Stage1</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="483460518487437">
+            <conditions>
+                <condition id="1" name="On item get" sid="985265553689179" type="LocalStorage">
+                    <param id="0" name="Key">&quot;highscore&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="254345944810085" type="System">
+                    <param id="0" name="Variable">HISCORE</param>
+                    <param id="1" name="Value">int(LocalStorage.ItemValue)</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="226843171378186">
+                    <conditions>
+                        <condition id="-33" name="Pick by comparison" sid="963618319172713" type="System">
+                            <param id="0" name="Object">text_score</param>
+                            <param id="1" name="Expression">text_score.contents</param>
+                            <param id="2" name="Comparison">0</param>
+                            <param id="3" name="Value">&quot;hiscore&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="533012110192344" type="text_score">
+                            <param id="0" name="Text">&quot;high score: &quot;&amp;zeropad(HISCORE,7)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>
