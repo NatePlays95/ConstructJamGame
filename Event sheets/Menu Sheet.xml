@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Menu Sheet</name>
     <events>
+        <include>audio logic</include>
         <include>fade logic</include>
         <event-block sid="995630495129858">
             <conditions>
@@ -12,6 +13,19 @@
                 <action id="0" name="Call function" sid="372806780577919" type="Function">
                     <param id="0" name="Name">&quot;fadein&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Call function" sid="177791899458150" type="Function">
+                    <param id="0" name="Name">&quot;playMusic&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;Title_Screen&quot;</param>
+                </action>
+                <action id="4" name="Preload" sid="871616198641463" type="Audio">
+                    <param id="0" name="Audio file">Standard_level</param>
+                </action>
+                <action id="4" name="Preload" sid="268852063406791" type="Audio">
+                    <param id="0" name="Audio file">BOSS</param>
+                </action>
+                <action id="4" name="Preload" sid="745103961323964" type="Audio">
+                    <param id="0" name="Audio file">Vicotory_Jingle</param>
                 </action>
             </actions>
             <sub-events>

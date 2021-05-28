@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>game logic</name>
     <events>
+        <include>audio logic</include>
         <include>fade logic</include>
         <include>player logic</include>
         <event-group description="" sid="425268662864626" title="Breakable Objects">
@@ -24,6 +25,10 @@
                     <actions>
                         <action id="5" name="Set frame" sid="759520418857299" type="Breakables">
                             <param id="0" name="Frame number">self.AnimationFrame+1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="819437761065549" type="Function">
+                            <param id="0" name="Name">&quot;playSFX&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;enemy_hit&quot;</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -286,6 +291,9 @@
                                                 <action behavior="Physics" id="9" name="Set angular velocity" sid="822421288905697" type="shield">
                                                     <param id="0" name="Angular velocity">0</param>
                                                 </action>
+                                                <action id="-8" name="Set angle" sid="199703374233234" type="shield">
+                                                    <param id="0" name="Angle">0</param>
+                                                </action>
                                                 <action id="-16" name="Wait" sid="688634306259138" type="System">
                                                     <param id="0" name="Seconds">2</param>
                                                 </action>
@@ -351,15 +359,18 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action behavior="Physics" id="15" name="Set velocity" sid="631899458410315" type="shield">
+                        <action id="-16" name="Wait" sid="515801414874200" type="System">
+                            <param id="0" name="Seconds">0.9</param>
+                        </action>
+                        <action behavior="Physics" id="15" name="Set velocity" sid="712861512431039" type="shield">
                             <param id="0" name="X component">0</param>
                             <param id="1" name="Y component">0</param>
                         </action>
-                        <action behavior="Physics" id="9" name="Set angular velocity" sid="461085788133859" type="shield">
+                        <action behavior="Physics" id="9" name="Set angular velocity" sid="930725467295702" type="shield">
                             <param id="0" name="Angular velocity">0</param>
                         </action>
-                        <action id="-16" name="Wait" sid="515801414874200" type="System">
-                            <param id="0" name="Seconds">0.9</param>
+                        <action id="-8" name="Set angle" sid="283360160212245" type="shield">
+                            <param id="0" name="Angle">0</param>
                         </action>
                         <action id="0" name="Call function" sid="319119129927956" type="Function">
                             <param id="0" name="Name">&quot;fadein&quot;</param>

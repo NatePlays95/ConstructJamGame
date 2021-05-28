@@ -16,11 +16,12 @@
                     <param id="0" name="Folder">0</param>
                     <param id="1" name="Audio file name">Function.Param(0)</param>
                     <param id="3" name="Loop">0</param>
-                    <param id="4" name="Volume">-10</param>
+                    <param id="4" name="Volume">0</param>
                     <param id="2" name="Tag (optional)">&quot;sfx&quot;</param>
                 </action>
             </actions>
         </event-block>
+        <variable constant="0" name="MSEEK" sid="394710991369441" static="0" type="number">0</variable>
         <event-block sid="342998075638862">
             <conditions>
                 <condition id="0" name="On function" sid="164664375212390" type="Function">
@@ -28,6 +29,10 @@
                 </condition>
             </conditions>
             <actions>
+                <action id="-9" name="Set value" sid="981828301559058" type="System">
+                    <param id="0" name="Variable">MSEEK</param>
+                    <param id="1" name="Value">Audio.PlaybackTime(&quot;music&quot;)</param>
+                </action>
                 <action id="6" name="Stop" sid="290091746280787" type="Audio">
                     <param id="0" name="Tag">&quot;music&quot;</param>
                 </action>
@@ -37,6 +42,10 @@
                     <param id="3" name="Loop">1</param>
                     <param id="4" name="Volume">0</param>
                     <param id="2" name="Tag (optional)">&quot;music&quot;</param>
+                </action>
+                <action id="23" name="Seek to" sid="986907563401284" type="Audio">
+                    <param id="0" name="Tag">&quot;music&quot;</param>
+                    <param id="1" name="Position">MSEEK</param>
                 </action>
                 <action id="0" name="Call function" sid="282364285637534" type="Function">
                     <param id="0" name="Name">&quot;FadeMusic&quot;</param>

@@ -575,10 +575,10 @@
                                 <collision-mask>Circle</collision-mask>
                                 <prevent-rotation>No</prevent-rotation>
                                 <density>10</density>
-                                <friction>0.1</friction>
+                                <friction>0.05</friction>
                                 <elasticity>0.8</elasticity>
-                                <linear-damping>0.5</linear-damping>
-                                <angular-damping>0.1</angular-damping>
+                                <linear-damping>0.3</linear-damping>
+                                <angular-damping>0.05</angular-damping>
                                 <bullet>No</bullet>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -587,15 +587,15 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>552</x>
-                        <y>216</y>
+                        <x>576</x>
+                        <y>184</y>
                         <z>0</z>
                         <width>18</width>
                         <height>18</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
-                        <angle>-1.580692291</angle>
+                        <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>

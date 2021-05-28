@@ -149,6 +149,10 @@
                                                     <param id="0" name="Instance variable">wallslide_timer</param>
                                                     <param id="1" name="Value">0</param>
                                                 </action>
+                                                <action id="0" name="Call function" sid="490558890087890" type="Function">
+                                                    <param id="0" name="Name">&quot;playSFX&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;jump&quot;</param>
+                                                </action>
                                             </actions>
                                         </event-block>
                                         <event-block sid="204263356766717">
@@ -173,6 +177,10 @@
                                                 <action id="-10" name="Set value" sid="974903519312525" type="player_box">
                                                     <param id="0" name="Instance variable">wallslide_timer</param>
                                                     <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="886307659944036" type="Function">
+                                                    <param id="0" name="Name">&quot;playSFX&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;jump&quot;</param>
                                                 </action>
                                             </actions>
                                         </event-block>
@@ -346,6 +354,17 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="817091284923760">
+                    <conditions>
+                        <condition behavior="Platform" id="5" name="On jump" sid="233435881714228" type="player_box" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="543666009305426" type="Function">
+                            <param id="0" name="Name">&quot;playSFX&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;jump&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
         <event-group description="" sid="628593649482826" title="Camera" />
@@ -390,22 +409,15 @@
                                 <condition behavior="Physics" id="1" name="Compare velocity" sid="663437071650475" type="shield">
                                     <param id="0" name="Which">2</param>
                                     <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">5</param>
+                                    <param id="2" name="Value">2</param>
                                 </condition>
                             </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="106019241886571">
-                                    <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="860544031841465" type="shield">
-                                            <param id="0" name="Instance variable">timer</param>
-                                            <param id="1" name="Comparison">3</param>
-                                            <param id="2" name="Value">0</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                </event-block>
-                            </sub-events>
+                            <actions>
+                                <action id="0" name="Call function" sid="456451295984300" type="Function">
+                                    <param id="0" name="Name">&quot;playSFX&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;wall_hit&quot;</param>
+                                </action>
+                            </actions>
                         </event-block>
                         <event-block sid="544495672837432">
                             <conditions>
@@ -424,9 +436,13 @@
                                     <param id="1" name="Value">0.5</param>
                                 </action>
                                 <action behavior="Physics" id="5" name="Apply impulse at angle" sid="438405953850898" type="shield">
-                                    <param id="0" name="Impulse">(player_box.Platform.Speed)*0.05</param>
+                                    <param id="0" name="Impulse">3 + sqrt(player_box.Platform.Speed)*0.5 </param>
                                     <param id="1" name="Angle">angle(player_box.ImagePointX(3),player_box.ImagePointY(3), Self.X, self.Y)</param>
                                     <param id="2" name="Image point">0</param>
+                                </action>
+                                <action id="0" name="Call function" sid="424390074825187" type="Function">
+                                    <param id="0" name="Name">&quot;playSFX&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;ball_hit&quot;</param>
                                 </action>
                             </actions>
                         </event-block>

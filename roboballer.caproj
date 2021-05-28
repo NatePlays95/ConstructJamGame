@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2project>
-    <name>New project</name>
+    <name>roboballer</name>
     <description></description>
     <version>1.0</version>
-    <author></author>
+    <author>nateplays, undead_monky</author>
     <author-email></author-email>
     <author-website></author-website>
     <app-id></app-id>
@@ -52,7 +52,7 @@
         <prop name="Fullscreen scaling">High quality</prop>
         <prop name="Fullscreen scaling quality">Low</prop>
         <prop name="Hide address bar">No</prop>
-        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Loader style">Percentage text</prop>
         <prop name="Preview browser">(default)</prop>
         <prop name="Sampling">Point</prop>
         <prop name="Use iOS retina display">All devices</prop>
@@ -739,11 +739,21 @@
     <sounds-folder>
         <file name="ball_hit.m4a" />
         <file name="ball_hit.ogg" />
-        <file name="enemy_damage.m4a" />
-        <file name="enemy_damage.ogg" />
+        <file name="wall_hit.m4a" />
+        <file name="wall_hit.ogg" />
+        <file name="enemy_hit.m4a" />
+        <file name="enemy_hit.ogg" />
+        <file name="jump.m4a" />
         <file name="jump.ogg" />
+        <file name="point.m4a" />
+        <file name="point.ogg" />
     </sounds-folder>
-    <music-folder />
+    <music-folder>
+        <file name="BOSS.ogg" />
+        <file name="Standard_level.ogg" />
+        <file name="Title_Screen.ogg" />
+        <file name="Vicotory_Jingle.ogg" />
+    </music-folder>
     <files-folder>
         <file-folder name="Icons">
             <file name="icon-16.png" />
