@@ -253,6 +253,7 @@
                     <type>player_box</type>
                     <type>ptc_wallslide</type>
                     <type>ptc_run</type>
+                    <type>player_anim</type>
                 </container>
                 <texture />
             </object-type>
@@ -305,13 +306,20 @@
                     <type>player_box</type>
                     <type>ptc_wallslide</type>
                     <type>ptc_run</type>
+                    <type>player_anim</type>
                 </container>
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="874152522769238" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="1">
                             <image-point name="handl" x="0" y="0.5" />
                             <image-point name="handr" x="1" y="0.5" />
-                            <image-point name="shoot" x="0.5" y="0.375" />
+                            <image-point name="shoot" x="0.5" y="0.5" />
+                            <collision-poly>
+                                <point x="0.0625" y="0.09375" />
+                                <point x="0.9375" y="0.09375" />
+                                <point x="0.9375" y="1" />
+                                <point x="0.0625" y="1" />
+                            </collision-poly>
                         </frame>
                     </animation>
                 </animation-folder>
@@ -322,6 +330,7 @@
                     <type>player_box</type>
                     <type>ptc_wallslide</type>
                     <type>ptc_run</type>
+                    <type>player_anim</type>
                 </container>
                 <texture />
             </object-type>
@@ -335,6 +344,49 @@
                 <animation-folder>
                     <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="500843987517907" speed="5">
                         <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="player_anim" sid="602123684829594">
+                <plugin id="Sprite" />
+                <container>
+                    <type>player_box</type>
+                    <type>ptc_wallslide</type>
+                    <type>ptc_run</type>
+                    <type>player_anim</type>
+                </container>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="386507741113379" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="1" />
+                    </animation>
+                    <animation framecount="4" loop="1" name="idle" pingpong="0" repeatcount="1" repeatto="0" sid="212370769949448" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.90625" original-source="C:\Users\natan\Desktop\chibirobo1.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.90625" original-source="C:\Users\natan\Desktop\chibirobo2.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.90625" original-source="C:\Users\natan\Desktop\chibirobo3.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.90625" original-source="C:\Users\natan\Desktop\chibirobo4.png" />
+                    </animation>
+                    <animation framecount="4" loop="1" name="run" pingpong="0" repeatcount="1" repeatto="0" sid="584406225776030" speed="10">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo5.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo7.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo8.png" />
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo9.png" />
+                    </animation>
+                    <animation framecount="1" loop="1" name="jump" pingpong="0" repeatcount="1" repeatto="0" sid="138022813259111" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo10.png" />
+                    </animation>
+                    <animation framecount="1" loop="0" name="fall" pingpong="0" repeatcount="1" repeatto="0" sid="559105265369590" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo11.png" />
+                    </animation>
+                    <animation framecount="2" loop="1" name="wall" pingpong="0" repeatcount="1" repeatto="0" sid="948286414902136" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" original-source="C:\Users\natan\Desktop\chibirobo12.png">
+                            <collision-poly>
+                                <point x="1" y="1" />
+                                <point x="0" y="1" />
+                                <point x="0" y="0" />
+                                <point x="1" y="0" />
+                            </collision-poly>
+                        </frame>
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.9375" />
                     </animation>
                 </animation-folder>
             </object-type>
@@ -599,6 +651,23 @@
             <plugin id="Particles" />
             <texture />
         </object-type>
+        <object-type name="explosion" sid="361294518793352">
+            <plugin id="Particles" />
+            <texture />
+        </object-type>
+        <object-type name="shield_aimg" sid="151419763095528">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Fade" sid="550673863460545">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="393273784457034" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="SolidTiles" plugin-id="Tilemap" sid="430722441375973">
@@ -634,6 +703,7 @@
         <event-sheet>Results sheet.xml</event-sheet>
         <event-sheet>fade logic.xml</event-sheet>
         <event-sheet>Menu Sheet.xml</event-sheet>
+        <event-sheet>audio logic.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="WebStorage" uid="1" />
@@ -666,7 +736,13 @@
         <global-instance type="Browser" uid="7" />
         <global-instance type="Function" uid="9" />
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="ball_hit.m4a" />
+        <file name="ball_hit.ogg" />
+        <file name="enemy_damage.m4a" />
+        <file name="enemy_damage.ogg" />
+        <file name="jump.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">

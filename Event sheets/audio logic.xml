@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>audio logic</name>
+    <events>
+        <variable constant="0" name="MFADE_MODE" sid="694750335385159" static="0" type="number">0</variable>
+        <variable constant="0" name="MFADE_VOL" sid="168879900345545" static="0" type="number">10</variable>
+        <event-block sid="989967047952447">
+            <conditions>
+                <condition id="0" name="On function" sid="575192610666299" type="Function">
+                    <param id="0" name="Name">&quot;playSFX&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="7" name="Play (by name)" sid="490977667229397" type="Audio">
+                    <param id="0" name="Folder">0</param>
+                    <param id="1" name="Audio file name">Function.Param(0)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">-10</param>
+                    <param id="2" name="Tag (optional)">&quot;sfx&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="342998075638862">
+            <conditions>
+                <condition id="0" name="On function" sid="164664375212390" type="Function">
+                    <param id="0" name="Name">&quot;playMusic&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="6" name="Stop" sid="290091746280787" type="Audio">
+                    <param id="0" name="Tag">&quot;music&quot;</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="988820170400848" type="Audio">
+                    <param id="0" name="Folder">1</param>
+                    <param id="1" name="Audio file name">Function.Param(0)</param>
+                    <param id="3" name="Loop">1</param>
+                    <param id="4" name="Volume">0</param>
+                    <param id="2" name="Tag (optional)">&quot;music&quot;</param>
+                </action>
+                <action id="0" name="Call function" sid="282364285637534" type="Function">
+                    <param id="0" name="Name">&quot;FadeMusic&quot;</param>
+                    <param id="1" name="Parameter {n}">&quot;in&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="961570476499696">
+            <conditions>
+                <condition id="0" name="On function" sid="652377014309931" type="Function">
+                    <param id="0" name="Name">&quot;playJingle&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="22" name="Set paused" sid="122637510029633" type="Audio">
+                    <param id="0" name="Tag">&quot;music&quot;</param>
+                    <param id="1" name="State">0</param>
+                </action>
+                <action id="7" name="Play (by name)" sid="891186566814828" type="Audio">
+                    <param id="0" name="Folder">1</param>
+                    <param id="1" name="Audio file name">Function.Param(0)</param>
+                    <param id="3" name="Loop">0</param>
+                    <param id="4" name="Volume">-10</param>
+                    <param id="2" name="Tag (optional)">&quot;jingle&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="999690007045310">
+            <conditions>
+                <condition id="0" name="On ended" sid="207544672193281" type="Audio">
+                    <param id="0" name="Tag">&quot;jingle&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="22" name="Set paused" sid="942542876856485" type="Audio">
+                    <param id="0" name="Tag">&quot;music&quot;</param>
+                    <param id="1" name="State">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="633472334351621" title="Music Fade">
+            <sub-events>
+                <event-block sid="180604060973745">
+                    <conditions>
+                        <condition id="0" name="On function" sid="878378202975852" type="Function">
+                            <param id="0" name="Name">&quot;FadeMusic&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="534182241621584">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="445467366412221" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;in&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="297609399970684" type="System">
+                                    <param id="0" name="Variable">MFADE_MODE</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="552198454255362">
+                            <conditions>
+                                <condition id="1" name="Compare parameter" sid="199630759115902" type="Function">
+                                    <param id="0" name="Index">0</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;out&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="744541221809109" type="System">
+                                    <param id="0" name="Variable">MFADE_MODE</param>
+                                    <param id="1" name="Value">-1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="765016867067521">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="239284678335710" type="System" />
+                        <condition id="-14" name="Compare variable" sid="812511232004968" type="System">
+                            <param id="0" name="Variable">MFADE_MODE</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set volume" sid="290542276526526" type="Audio">
+                            <param id="0" name="Tag">&quot;music&quot;</param>
+                            <param id="1" name="dB">Audio.Volume(&quot;music&quot;) + dt*MFADE_MODE*10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="671024842394052">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="848999138582474" type="System">
+                            <param id="0" name="First value">Audio.Volume(&quot;music&quot;)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set volume" sid="423446852984052" type="Audio">
+                            <param id="0" name="Tag">&quot;music&quot;</param>
+                            <param id="1" name="dB">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="467099039901023" type="System">
+                            <param id="0" name="Variable">MFADE_MODE</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="613769889799603">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="537020725905651" type="System">
+                            <param id="0" name="First value">Audio.Volume(&quot;music&quot;)</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="3" name="Set volume" sid="786933280215597" type="Audio">
+                            <param id="0" name="Tag">&quot;music&quot;</param>
+                            <param id="1" name="dB">10</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="722512930522641" type="System">
+                            <param id="0" name="Variable">MFADE_MODE</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

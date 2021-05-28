@@ -157,7 +157,7 @@
                         <character-width>8</character-width>
                         <character-height>8</character-height>
                         <character-set> !`#$%&amp;´()x+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_*abcdefghijklmnopqrstuvwxyz</character-set>
-                        <text>robot game</text>
+                        <text>roboball</text>
                         <scale>4</scale>
                         <initial-visibility>Visible</initial-visibility>
                         <horizontal-alignment>Center</horizontal-alignment>
@@ -176,7 +176,7 @@
                         <x>240</x>
                         <y>48</y>
                         <z>0</z>
-                        <width>304</width>
+                        <width>416</width>
                         <height>64</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>

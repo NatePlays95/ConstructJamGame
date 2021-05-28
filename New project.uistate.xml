@@ -20,6 +20,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <event-sheet order="6">Results sheet</event-sheet>
         <event-sheet order="7">fade logic</event-sheet>
         <event-sheet order="9">Menu Sheet</event-sheet>
+        <event-sheet order="10">audio logic</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -51,10 +52,12 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/shield/" />
         <folder expanded="1" path="animation-folder/player_box/" />
         <folder expanded="1" path="animation-folder/camera/" />
+        <folder expanded="1" path="animation-folder/player_anim/" />
         <folder expanded="1" path="animation-folder/hud_fade/" />
         <folder expanded="1" path="animation-folder/bar_combo_edge/" />
         <folder expanded="1" path="animation-folder/controls/" />
         <folder expanded="1" path="animation-folder/pl_cursor/" />
         <folder expanded="1" path="animation-folder/pl_aim/" />
+        <folder expanded="1" path="animation-folder/shield_aimg/" />
     </folders-expanded>
 </c2uistate>

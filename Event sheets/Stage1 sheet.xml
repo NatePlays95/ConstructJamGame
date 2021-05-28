@@ -13,6 +13,10 @@
                     <param id="0" name="Name">&quot;fadein&quot;</param>
                     <param id="1" name="Parameter {n}"></param>
                 </action>
+                <action id="-9" name="Set value" sid="399674791091082" type="System">
+                    <param id="0" name="Variable">TIMER</param>
+                    <param id="1" name="Value">40</param>
+                </action>
                 <action id="-3" name="Create object" sid="973277355088626" type="System">
                     <param id="0" name="Object to create">player_box</param>
                     <param id="1" name="Layer">&quot;game&quot;</param>
@@ -33,9 +37,14 @@
                     <param id="0" name="X">160</param>
                     <param id="1" name="Y">248</param>
                 </action>
-                <action id="-9" name="Set value" sid="486471879416581" type="System">
-                    <param id="0" name="Variable">TIMER</param>
-                    <param id="1" name="Value">0.5</param>
+                <action id="-16" name="Wait" sid="974909122968491" type="System">
+                    <param id="0" name="Seconds">0.01</param>
+                </action>
+                <action behavior="Physics" id="9" name="Set angular velocity" sid="218514218503132" type="shield">
+                    <param id="0" name="Angular velocity">0</param>
+                </action>
+                <action id="-16" name="Wait" sid="486471879416581" type="System">
+                    <param id="0" name="Seconds">0.5</param>
                 </action>
                 <action id="-15" name="Set visible" sid="466361999050354" type="bar_combo">
                     <param id="0" name="Visibility">1</param>
@@ -91,7 +100,7 @@
                         </action>
                         <action id="-3" name="Set position" sid="920557762877139" type="shield">
                             <param id="0" name="X">160</param>
-                            <param id="1" name="Y">248</param>
+                            <param id="1" name="Y">230</param>
                         </action>
                         <action id="-9" name="Set value" sid="606769738015945" type="System">
                             <param id="0" name="Variable">TIMER</param>
@@ -118,7 +127,7 @@
                         </action>
                         <action id="-3" name="Set position" sid="384765694854104" type="shield">
                             <param id="0" name="X">728</param>
-                            <param id="1" name="Y">248</param>
+                            <param id="1" name="Y">230</param>
                         </action>
                         <action id="-9" name="Set value" sid="179184682349864" type="System">
                             <param id="0" name="Variable">TIMER</param>
@@ -145,7 +154,7 @@
                         </action>
                         <action id="-3" name="Set position" sid="571406710816071" type="shield">
                             <param id="0" name="X">1194</param>
-                            <param id="1" name="Y">248</param>
+                            <param id="1" name="Y">230</param>
                         </action>
                         <action id="-9" name="Set value" sid="967559074702592" type="System">
                             <param id="0" name="Variable">TIMER</param>
@@ -172,7 +181,7 @@
                         </action>
                         <action id="-3" name="Set position" sid="523888532290965" type="shield">
                             <param id="0" name="X">1720</param>
-                            <param id="1" name="Y">248</param>
+                            <param id="1" name="Y">230</param>
                         </action>
                         <action id="-9" name="Set value" sid="739255414850102" type="System">
                             <param id="0" name="Variable">TIMER</param>
@@ -199,7 +208,7 @@
                         </action>
                         <action id="-3" name="Set position" sid="561280292812220" type="shield">
                             <param id="0" name="X">2224</param>
-                            <param id="1" name="Y">248</param>
+                            <param id="1" name="Y">220</param>
                         </action>
                         <action id="-9" name="Set value" sid="306898725165485" type="System">
                             <param id="0" name="Variable">TIMER</param>
